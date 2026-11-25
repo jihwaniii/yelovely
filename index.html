@@ -427,6 +427,52 @@ h1,h2,h3,.h2,b{text-wrap:balance}
 #why .reasons p{color:rgba(244,238,227,.62)}
 @media(max-width:760px){#why::before{background-position:center 45%}#why::after{background:rgba(42,34,30,.58)}}
 @supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){#why .glass{background:rgba(42,34,30,.88)}}
+
+/* 올레샷 훅 */
+.ole{background:var(--paper)}
+.ole-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(40px,6vw,100px);align-items:start}
+.ole-lead{margin-top:20px;font-size:clamp(15px,1.3vw,17px);color:var(--ink-2)}
+.ole-stat{margin-top:clamp(32px,4vw,56px);display:flex;align-items:flex-end;gap:18px;border-top:1px solid var(--line);padding-top:22px}
+.ole-stat b{font-family:var(--mice);font-weight:400;font-size:clamp(56px,7vw,96px);line-height:.9;color:var(--ink)}
+.ole-stat b small{font-size:.45em;margin-left:2px}
+.ole-stat span{font-size:13px;color:var(--ink-2);line-height:1.6;padding-bottom:6px}
+sup{font-size:.65em;vertical-align:super;line-height:0;margin-left:1px}
+.ole-q{font-family:var(--mice);font-size:clamp(19px,1.7vw,24px);color:var(--ink);margin-bottom:10px}
+.pains{list-style:none}
+.pains li{padding:18px 0;border-bottom:1px solid var(--line);font-size:clamp(16px,1.4vw,19px);color:var(--ink-2)}
+.pains li span{position:relative;display:inline}
+.pains li span::after{content:"";position:absolute;left:-2px;right:-2px;top:55%;height:2px;background:var(--clay);transform:scaleX(0);transform-origin:left;transition:transform .9s var(--ease) .35s}
+.pains li.in span::after{transform:scaleX(1)}
+.pains li:nth-child(2) span::after{transition-delay:.5s}.pains li:nth-child(3) span::after{transition-delay:.65s}.pains li:nth-child(4) span::after{transition-delay:.8s}
+.ole-answer{margin-top:28px;background:var(--brown2);color:var(--cream);border-radius:22px;padding:clamp(24px,3vw,36px)}
+.ole-answer p{font-size:clamp(20px,2vw,27px);font-weight:500;letter-spacing:-.02em;line-height:1.4}
+.ole-answer em{font-style:normal;color:var(--lemon);font-family:var(--mice);font-weight:400}
+.ole-answer span{display:block;margin-top:12px;font-size:14.5px;color:rgba(244,238,227,.7);line-height:1.75}
+.src{margin-top:clamp(36px,4vw,56px);font-size:11.5px;color:var(--ink-2);opacity:.8}
+@media(max-width:860px){.ole-grid{grid-template-columns:1fr}}
+
+/* 성분 심화 */
+.deep{background:var(--paper)}
+.deep .h2{margin-bottom:clamp(40px,5vw,72px)}
+.chap{display:grid;grid-template-columns:minmax(0,.55fr) minmax(0,1.6fr) minmax(0,.8fr);gap:clamp(20px,4vw,64px);padding:clamp(36px,4.5vw,64px) 0;border-top:1px solid var(--line)}
+.chap-no b{display:block;font-family:var(--mice);font-weight:400;font-size:clamp(44px,5vw,72px);line-height:1;color:var(--ink)}
+.chap-no span{display:block;margin-top:10px;font-family:var(--mice);font-size:16px;color:var(--clay)}
+.chap-body h3{font-size:clamp(22px,2.2vw,30px);font-weight:600;letter-spacing:-.03em;line-height:1.35;margin-bottom:16px;text-wrap:balance}
+.chap-body>p{font-size:clamp(15px,1.15vw,16.5px);color:var(--ink-2);line-height:1.85;text-wrap:pretty}
+.chap-body>p+p{margin-top:12px}
+.claim{margin-top:22px;padding:18px 20px;border-radius:16px;background:#fff;border:1px solid var(--line)}
+.claim small{display:block;font-size:12px;font-weight:600;color:var(--olive);margin-bottom:6px}
+.claim p{font-size:14px;line-height:1.75;color:var(--ink)}
+.chap-note{margin-top:14px;font-size:13px!important;color:var(--clay)!important}
+.chap-fact{align-self:start;border-left:1px solid var(--line);padding-left:clamp(16px,2vw,28px)}
+.chap-fact b{display:block;font-family:var(--mice);font-weight:400;font-size:clamp(34px,3.6vw,52px);line-height:1;color:var(--ink)}
+.chap-fact b small{font-size:.5em;color:var(--ink-2)}
+.chap-fact span{display:block;margin-top:12px;font-size:13px;line-height:1.65;color:var(--ink-2)}
+.deep-foot{border-top:1px solid var(--line);padding-top:24px;font-size:12px;color:var(--ink-2);line-height:1.7}
+.deep-foot p+p{margin-top:6px}
+.no-claims .claim{display:none}
+@media(max-width:900px){.chap{grid-template-columns:1fr}.chap-no{display:flex;align-items:baseline;gap:14px}.chap-no span{margin-top:0}.chap-fact{border-left:0;border-top:1px solid var(--line);padding:18px 0 0}}
+.nw{font-style:normal;white-space:nowrap}
 </style>
 </head>
 <body>
@@ -471,6 +517,31 @@ h1,h2,h3,.h2,b{text-wrap:balance}
 </section>
 
 <div class="ribbon" aria-hidden="true"><div class="track" id="track"></div></div>
+
+<section class="band ole" id="oleshot">
+  <div class="wrap ole-grid">
+    <div>
+      <p class="label">Olé shot, made easy</p>
+      <h2 class="h2">아침 공복 올레샷,<br>매일 하기 어려웠죠?</h2>
+      <p class="ole-lead rv">올리브오일 한 스푼에 레몬즙 한 스푼.<br>요즘 아침 루틴으로 가장 많이 이야기되는 조합이에요.</p>
+      <p class="ole-stat rv"><b>2,479<small>%</small></b><span>올리브영 온라인몰 레몬즙 검색량,<br>전년 같은 기간 대비 증가<sup>1</sup></span></p>
+    </div>
+    <div>
+      <p class="ole-q">그런데 사흘 만에 멈추는 이유</p>
+      <ul class="pains">
+        <li class="rv"><span>숟가락에 따르고, 섞고, 설거지까지</span></li>
+        <li class="rv"><span>오일의 느끼함, 레몬의 시큼함</span></li>
+        <li class="rv"><span>출근길 가방에 병을 넣을 순 없으니까</span></li>
+        <li class="rv"><span>냉장고 안쪽으로 밀려난 레몬즙 한 병</span></li>
+      </ul>
+      <div class="ole-answer rv">
+        <p>옐러블리는 그 아침을 <em>한 포</em>로 접었어요.</p>
+        <span>올리브오일은 캡슐로, 레몬은 정제로.<br>여기에 엽산과 유산균 한 알을 더해, <i class="nw">물 한 모금이면 끝.</i></span>
+      </div>
+    </div>
+  </div>
+  <p class="wrap src">1. 세계일보, 2026.02.20 보도 인용. 올레샷은 식습관 트렌드를 소개한 것이며 특정 효과를 뜻하지 않아요.</p>
+</section>
 
 <section class="band" id="why">
   <div class="wrap">
@@ -570,6 +641,63 @@ h1,h2,h3,.h2,b{text-wrap:balance}
     </div>
   </div>
 </section>
+
+<section class="band deep" id="deep">
+  <div class="wrap">
+    <p class="label">Why these five</p>
+    <h2 class="h2">따로 챙기던 데는 이유가 있었어요.<br>그래서 한 포에 모았어요.</h2>
+
+    <article class="chap rv">
+      <div class="chap-no"><b>01</b><span>Lemon</span></div>
+      <div class="chap-body">
+        <h3>아침을 깨우는 첫 맛, 레몬</h3>
+        <p>아침에 레몬물부터 마시는 사람들이 있어요. 덜 깬 입안을 단번에 산뜻하게 바꿔 주는 그 신맛 때문이에요. 다만 매일 레몬을 짜거나 따르기는 번거롭고, 신맛이 입안에 오래 남는 것도 부담이에요.</p>
+        <p>옐러블리는 레몬추출물을 비타민C와 함께 정제 한 알에 담았어요. 씹지 않고 물과 함께 삼키면 돼요.</p>
+        <div class="claim" data-claim="vitc"><small>비타민C에 대해 알려진 것</small><p>본 제품에는 항산화 작용을 하여 유해산소로부터 세포를 보호하는 데 필요하고, 결합조직 형성과 기능 유지, 철의 흡수에 필요하다고 알려진 비타민C가 들어 있습니다.</p></div>
+      </div>
+      <aside class="chap-fact"><b>Vitamin C</b><span>우리 몸이 스스로 만들지 못해<br>매일 음식으로 챙겨야 하는 영양소</span></aside>
+    </article>
+
+    <article class="chap rv">
+      <div class="chap-no"><b>02</b><span>Lemon × Olive</span></div>
+      <div class="chap-body">
+        <h3>레몬과 올리브오일은 원래 한 짝이에요</h3>
+        <p>그리스 식탁에는 '라돌레모노(ladolemono)'라는 소스가 있어요. 올리브오일과 레몬즙을 섞은 것으로, 생선에도 샐러드에도 구운 채소에도 이 둘이 함께 올라가요.</p>
+        <p>고소하고 묵직한 오일에 레몬의 산뜻함이 더해지면 서로의 맛이 균형을 잡아요. 올레샷이 두 가지를 함께 마시는 것도 같은 이유예요. 옐러블리는 이 오래된 짝을 크레타 헤라클리온의 올리브오일과 레몬으로 한 포에 담았어요.</p>
+      </div>
+      <aside class="chap-fact"><b>1 + 1</b><span>올리브오일 캡슐 1알, 레몬 정제 1알<br>한 포에 담은 지중해의 아침</span></aside>
+    </article>
+
+    <article class="chap rv">
+      <div class="chap-no"><b>03</b><span>Folic acid</span></div>
+      <div class="chap-body">
+        <h3>여성들이 엽산부터 챙기는 이유</h3>
+        <p>엽산은 비타민 B군의 하나예요. 임신을 계획한다면 미리 챙기라고 권하는 대표적인 영양소라, 보건소에서도 임신 준비 여성에게 엽산제를 지원하고 있어요.</p>
+        <p>그런데 임신을 준비하면서 엽산을 챙기는 여성은 10명 중 3명 수준이라는 국내 연구가 있어요.<sup>2</sup> 필요한 줄은 알아도, 따로 통을 사서 매일 기억하기가 어렵기 때문이에요. 옐러블리는 엽산을 아침 한 포 안에 넣어, 잊을 틈을 줄였어요.</p>
+        <div class="claim" data-claim="folate"><small>엽산에 대해 알려진 것</small><p>본 제품에는 세포와 혈액 생성에 필요하고, 태아 신경관의 정상 발달에 필요하며, 혈액의 호모시스테인 수준을 정상으로 유지하는 데 필요하다고 알려진 엽산이 들어 있습니다.</p></div>
+        <p class="chap-note">임신 중이거나 임신을 준비 중이라면, 함께 드시는 영양제와 엽산이 겹치지 않는지 전문의와 확인하세요.</p>
+      </div>
+      <aside class="chap-fact"><b>3<small> / 10</small></b><span>임신을 준비하며<br>엽산을 챙기는 여성의 비율<sup>2</sup></span></aside>
+    </article>
+
+    <article class="chap rv">
+      <div class="chap-no"><b>04</b><span>Probiotics</span></div>
+      <div class="chap-body">
+        <h3>가장 먼저 잊히는 통, 유산균</h3>
+        <p>유산균은 매일 꾸준히 챙기는 게 중요하다고들 해요. 그런데 영양제 통이 여러 개일수록 가장 먼저 잊히는 것도 유산균이에요.</p>
+        <p>옐러블리는 원료사가 특허를 등록한 질 유래 유산균 3종을 엽산과 함께 정제 한 알에 담았어요. 레몬, 올리브오일과 같은 포에 있으니 따로 기억할 필요가 없어요.</p>
+        <div class="claim" data-claim="probiotics"><small>프로바이오틱스에 대해 알려진 것</small><p>본 제품에는 유산균 증식 및 유해균 억제, 배변활동 원활에 도움을 줄 수 있다고 알려진 프로바이오틱스가 들어 있습니다.</p></div>
+      </div>
+      <aside class="chap-fact"><b>3</b><span>원료사가 특허를 등록한<br>질 유래 유산균 3종</span></aside>
+    </article>
+
+    <div class="deep-foot">
+      <p>위 성분 이야기는 각 원료에 대해 알려진 내용이에요. 본 제품은 건강기능식품이 아니며, 질병의 예방 및 치료를 위한 의약품이 아닙니다.</p>
+      <p>2. 파이낸셜뉴스, 2026.08.27 보도. 인제대 일산백병원 산부인과 연구팀의 국내 여성 4만2,730명 분석.</p>
+    </div>
+  </div>
+</section>
+
 
 <section class="band" id="culture">
   <div class="wrap culture">
@@ -712,6 +840,8 @@ h1,h2,h3,.h2,b{text-wrap:balance}
     </div>
     <div>
       <details><summary>언제, 어떻게 먹나요?</summary><p>하루 1포, 파우치를 찢어 정제 2알과 캡슐 1알을 물과 함께 드세요. 아침 루틴에 맞춰 만들었어요.</p></details>
+      <details><summary>올레샷이랑 뭐가 다른가요?</summary><p>올레샷은 올리브오일과 레몬즙을 직접 섞어 마시는 방식이에요. 옐러블리는 올리브오일을 캡슐에, 레몬을 정제에 담아 숟가락이나 맛 걱정 없이 삼키면 돼요. 여기에 엽산과 유산균 정제를 한 알 더했어요.</p></details>
+      <details><summary>임신을 준비 중인데 먹어도 되나요?</summary><p>엽산이 들어 있어 임신 준비 중에 찾는 분이 많아요. 다만 이미 엽산이 든 영양제를 드시고 있다면 하루 섭취량이 겹칠 수 있으니, 전문의와 확인한 뒤 드세요.</p></details>
       <details><summary>건강기능식품인가요?</summary><p>아니요. 옐러블리 Lemon Aura는 일반식품이에요. 본 제품은 의약품 또는 건강기능식품이 아닙니다.</p></details>
       <details><summary>왜 세 알로 나눴나요?</summary><p>올리브오일은 가루 원료와 섞어 정제로 만들 수 없어서 연질캡슐에 따로 담았어요. 가루 원료는 레몬추출물·비타민C 정제와 엽산·유산균 정제, 두 알로 나눠 담았어요.</p></details>
       <details><summary>올리브오일은 어디서 왔나요?</summary><p>그리스 크레타섬 헤라클리온 한 곳의 유기농 엑스트라버진 올리브오일이에요. 원료 성적서와 규격서를 위 Papers에서 볼 수 있어요.</p></details>
