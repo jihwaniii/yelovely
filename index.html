@@ -473,6 +473,27 @@ sup{font-size:.65em;vertical-align:super;line-height:0;margin-left:1px}
 .no-claims .claim{display:none}
 @media(max-width:900px){.chap{grid-template-columns:1fr}.chap-no{display:flex;align-items:baseline;gap:14px}.chap-no span{margin-top:0}.chap-fact{border-left:0;border-top:1px solid var(--line);padding:18px 0 0}}
 .nw{font-style:normal;white-space:nowrap}
+
+/* 줄바꿈: 데스크톱에서만 강제 */
+@media(max-width:900px){br.bd{display:none}}
+/* 원료 카드: 은은한 컬러 + 호버 */
+.ing{background:rgba(58,49,44,.12);gap:0 1px}
+.ing article{position:relative;isolation:isolate;overflow:hidden;transition:background-color .5s var(--ease),color .5s var(--ease)}
+.ing article::before{content:"";position:absolute;inset:0;z-index:-1;opacity:.55;transition:opacity .6s var(--ease),transform .9s var(--ease);transform:scale(1.02)}
+.ing article:nth-child(1)::before{background:radial-gradient(120% 90% at 0% 100%,rgba(255,240,153,.75),transparent 60%)}
+.ing article:nth-child(2)::before{background:radial-gradient(120% 90% at 0% 100%,rgba(122,136,82,.32),transparent 60%)}
+.ing article:nth-child(3)::before{background:radial-gradient(120% 90% at 0% 100%,rgba(196,140,110,.30),transparent 60%)}
+.ing .big{transition:color .5s var(--ease),transform .6s var(--ease);transform-origin:left bottom}
+@media(hover:hover){
+.ing article:hover::before{opacity:1;transform:scale(1.25)}
+.ing article:nth-child(1):hover{background:#F6EDC4}
+.ing article:nth-child(2):hover{background:#E3E3CC}
+.ing article:nth-child(3):hover{background:#EFDDD0}
+.ing article:nth-child(1):hover .big{color:#8A7414;transform:scale(1.06)}
+.ing article:nth-child(2):hover .big{color:var(--olive);transform:scale(1.06)}
+.ing article:nth-child(3):hover .big{color:var(--clay);transform:scale(1.06)}
+}
+@media(prefers-reduced-motion:reduce){.ing article,.ing article::before,.ing .big{transition:none}}
 </style>
 </head>
 <body>
@@ -563,9 +584,9 @@ sup{font-size:.65em;vertical-align:super;line-height:0;margin-left:1px}
     </div>
     </div>
     <ol class="reasons">
-      <li class="glass rv"><span class="n">1.</span><b>섞지 않은 <em>단일 산지</em> 올리브오일</b><p>여러 나라 오일을 블렌딩하지 않았어요. 그리스 크레타섬 헤라클리온 한 곳의 유기농 엑스트라버진 올리브오일만 담았어요.</p></li>
-      <li class="glass rv"><span class="n">2.</span><b>정제 2알과 캡슐 1알, <em>5가지 원료</em>를 한 포에</b><p>올리브오일 캡슐 한 알로 끝내지 않았어요. 레몬추출물·비타민C 정제와 엽산·특허 유산균 3종 정제를 한 알씩 더했어요.</p></li>
-      <li class="glass rv"><span class="n">3.</span><b>말 대신 <em>서류</em>로 확인</b><p>원료 성적서, 규격서, 원료 유기농 인증, 유산균 특허증까지. 아래에서 직접 넘겨 볼 수 있어요.</p></li>
+      <li class="glass rv"><span class="n">1.</span><b>섞지 않은 <em>단일 산지</em> 올리브오일</b><p>여러 나라 오일을 블렌딩하지 않았어요.<br class="bd"> 그리스 크레타섬 헤라클리온 한 곳의<br class="bd"> 유기농 엑스트라버진 올리브오일만 담았어요.</p></li>
+      <li class="glass rv"><span class="n">2.</span><b>정제 2알과 캡슐 1알,<br class="bd"> <em>5가지 원료</em>를 한 포에</b><p>올리브오일 캡슐 한 알로 끝내지 않았어요.<br class="bd"> 레몬추출물·비타민C 정제와<br class="bd"> 엽산·특허 유산균 3종 정제를<br class="bd"> 한 알씩 더했어요.</p></li>
+      <li class="glass rv"><span class="n">3.</span><b>말 대신 <em>서류</em>로 확인</b><p>원료 성적서, 규격서, 원료 유기농 인증,<br class="bd"> 유산균 특허증까지.<br class="bd"> 아래에서 직접 넘겨 볼 수 있어요.</p></li>
     </ol>
   </div>
 </section>
