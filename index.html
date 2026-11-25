@@ -501,6 +501,28 @@ sup{font-size:.65em;vertical-align:super;line-height:0;margin-left:1px}
 .culture .yr-cut{position:absolute;z-index:1;width:80%;height:auto;left:26%;top:52%;filter:drop-shadow(0 18px 22px rgba(58,49,44,.22));transform:translate3d(0,var(--py,0px),0) rotate(var(--pr,-4deg));will-change:transform;pointer-events:none}
 .culture .year small{position:relative;z-index:2;margin-top:clamp(90px,10vw,150px)}
 @media(max-width:760px){.culture .yr-cut{width:78%;left:34%;top:48%}.culture .year small{margin-top:96px}}
+
+/* 지중해 식단 */
+.med-plate{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.med-plate li{font-size:13px;padding:6px 13px;border-radius:999px;border:1px solid rgba(79,90,56,.35);color:var(--olive);background:rgba(255,255,255,.35)}
+.med-plate li:nth-child(-n+2){background:var(--olive);border-color:var(--olive);color:var(--cream)}
+.med-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(16px,2.4vw,32px);margin-top:clamp(26px,3vw,40px);padding-top:22px;border-top:1px solid var(--line)}
+.med-facts b{display:block;font-family:var(--mice);font-weight:400;font-size:clamp(34px,3.4vw,48px);line-height:1;color:var(--olive)}
+.med-facts b small{font-family:var(--sans);font-size:14px;margin-left:4px;color:var(--ink-2)}
+.med-facts span{display:block;margin-top:10px;font-size:13px;line-height:1.6;color:var(--ink-2)}
+.culture .lead2{margin-top:clamp(24px,3vw,36px);font-size:clamp(16px,1.4vw,19px);font-weight:500;color:var(--ink);line-height:1.6}
+.culture .src{line-height:1.7}
+@media(max-width:520px){.med-facts{grid-template-columns:1fr}}
+
+/* 커스텀 커서 */
+@media(hover:hover) and (pointer:fine){
+html.cc,html.cc *{cursor:none!important}
+html.cc input,html.cc textarea{cursor:text!important}
+.cur{position:fixed;left:0;top:0;width:18px;height:18px;margin:-9px 0 0 -9px;border-radius:50%;background:var(--lemon);box-shadow:0 0 0 1px rgba(58,49,44,.28),0 4px 14px rgba(58,49,44,.18);pointer-events:none;z-index:9999;transition:width .25s var(--ease),height .25s var(--ease),margin .25s var(--ease),opacity .2s,background-color .25s;opacity:0}
+.cur.on{opacity:1}
+.cur.big{width:46px;height:46px;margin:-23px 0 0 -23px;background:rgba(255,240,153,.55);box-shadow:0 0 0 1px rgba(58,49,44,.25)}
+.cur.down{transform:scale(.8)}
+}
 </style>
 </head>
 <body>
@@ -731,8 +753,16 @@ sup{font-size:.65em;vertical-align:super;line-height:0;margin-left:1px}
     <div class="rv">
       <p class="label">Mediterranean morning</p>
       <h2 class="h2">올리브오일과 레몬,<br>그리스 식탁의 기본이에요.</h2>
-      <p class="lead">그리스를 비롯한 지중해 사람들의 먹고 나누는 방식은 2013년 유네스코 인류무형문화유산에 올랐어요. 그 식탁에 늘 함께 오르는 올리브오일과 레몬을, 옐러블리는 바쁜 아침에 맞게 한 포에 옮겼어요.</p>
-      <p class="src">출처 · UNESCO Intangible Cultural Heritage, “Mediterranean diet” (키프로스 · 크로아티아 · 스페인 · 그리스 · 이탈리아 · 모로코 · 포르투갈)</p>
+      <p class="lead">지중해 식단은 특별한 메뉴가 아니라 먹는 방식이에요.<br class="bd"> 제철 채소와 과일, 통곡물과 콩, 생선을 기본으로 하고<br class="bd"> 버터 대신 올리브오일을, 소금 대신 레몬과 허브를 써요.</p>
+      <ul class="med-plate">
+        <li>올리브오일</li><li>레몬</li><li>제철 채소·과일</li><li>통곡물·콩</li><li>생선</li><li>허브</li>
+      </ul>
+      <div class="med-facts">
+        <p><b>7<small>개국</small></b><span>그리스·이탈리아·스페인 등<br>지중해 7개국이 함께 지켜 온 식문화</span></p>
+        <p><b>9<small>년 연속</small></b><span>U.S. News &amp; World Report<br>'Best Diets' 종합 1위 (2026년 기준)</span></p>
+      </div>
+      <p class="lead2">옐러블리는 그 식탁에 늘 함께 오르는 올리브오일과 레몬을<br class="bd"> 바쁜 아침에 맞게 한 포에 옮겼어요.</p>
+      <p class="src">출처 · UNESCO Intangible Cultural Heritage, “Mediterranean diet”<br>출처 · U.S. News &amp; World Report, Best Diets 2026<br>식단에 대한 소개이며 제품의 효과를 뜻하지 않아요.</p>
     </div>
   </div>
 </section>
@@ -1115,6 +1145,15 @@ sup{font-size:.65em;vertical-align:super;line-height:0;margin-left:1px}
 (()=>{const c=document.querySelector('.culture .yr-cut');if(!c||matchMedia('(prefers-reduced-motion:reduce)').matches)return;
 let t=0;const f=()=>{t=0;const r=c.closest('section').getBoundingClientRect(),h=innerHeight;const p=Math.max(-1,Math.min(1,(r.top+r.height/2-h/2)/h));c.style.setProperty('--py',(p*60).toFixed(1)+'px');c.style.setProperty('--pr',(-4+p*6).toFixed(2)+'deg')};
 addEventListener('scroll',()=>{if(!t){t=requestAnimationFrame(f)}},{passive:true});f()})();
+</script>
+<script>
+(()=>{if(!matchMedia('(hover:hover) and (pointer:fine)').matches)return;
+const c=document.createElement('div');c.className='cur';c.setAttribute('aria-hidden','true');document.body.appendChild(c);document.documentElement.classList.add('cc');
+let x=-99,y=-99,cx=x,cy=y,raf=0;const sel='a,button,summary,label,[role=button],.doc,.ing article,.day';
+const tick=()=>{cx+=(x-cx)*.35;cy+=(y-cy)*.35;c.style.translate=cx+'px '+cy+'px';raf=(Math.abs(x-cx)+Math.abs(y-cy)>.3)?requestAnimationFrame(tick):0};
+addEventListener('pointermove',e=>{x=e.clientX;y=e.clientY;c.classList.add('on');c.classList.toggle('big',!!e.target.closest(sel));if(!raf)raf=requestAnimationFrame(tick)},{passive:true});
+document.addEventListener('pointerleave',()=>c.classList.remove('on'));
+addEventListener('pointerdown',()=>c.classList.add('down'));addEventListener('pointerup',()=>c.classList.remove('down'));})();
 </script>
 </body>
 </html>
