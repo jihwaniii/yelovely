@@ -404,9 +404,9 @@ h1,h2,h3,.h2,b{text-wrap:balance}
 
 /* Why — 다크 글래스 */
 #why{position:relative;isolation:isolate;overflow:hidden;background:#2A221E;color:#F4EEE3}
-#why::before{content:"";position:absolute;inset:0;background:url(images/hero-oil-pour.jpg) right center/cover no-repeat;z-index:-2}
-#why::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(42,34,30,.82) 0%,rgba(42,34,30,.45) 55%,rgba(42,34,30,.12) 100%),linear-gradient(180deg,rgba(42,34,30,.35),transparent 30%,transparent 70%,rgba(42,34,30,.5));z-index:-1}
-#why .glass{background:linear-gradient(135deg,rgba(255,255,255,.10),rgba(255,255,255,.03));-webkit-backdrop-filter:blur(26px) saturate(1.4);backdrop-filter:blur(26px) saturate(1.4);border:1px solid rgba(255,255,255,.14);border-radius:28px;box-shadow:0 30px 80px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.14)}
+#why::before{content:"";position:absolute;inset:0;background:url(images/why-oil-capsule.jpg) center 55%/cover no-repeat;z-index:-2}
+#why::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(42,34,30,.62),rgba(42,34,30,.38) 45%,rgba(42,34,30,.6));z-index:-1}
+#why .glass{background:linear-gradient(135deg,rgba(255,255,255,.08),rgba(255,255,255,.02)),rgba(34,27,23,.32);-webkit-backdrop-filter:blur(26px) saturate(1.4);backdrop-filter:blur(26px) saturate(1.4);border:1px solid rgba(255,255,255,.14);border-radius:28px;box-shadow:0 30px 80px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.14)}
 #why .why-panel{padding:clamp(28px,4vw,60px) clamp(22px,4vw,60px) clamp(18px,2.4vw,32px)}
 #why .why-head{padding:0;margin:0}
 #why .label{color:#FFF099;opacity:.85}
@@ -416,7 +416,7 @@ h1,h2,h3,.h2,b{text-wrap:balance}
 #why .vs>div{border-bottom:1px solid rgba(255,255,255,.08);color:rgba(244,238,227,.88)}
 #why .vs>div:nth-last-child(-n+3){border-bottom:0}
 #why .vs .hd{color:rgba(244,238,227,.45);font-size:12px;letter-spacing:.04em}
-#why .vs .them{color:rgba(244,238,227,.5)}
+#why .vs .them{color:rgba(244,238,227,.62)}
 #why .vs .me{background:rgba(255,240,153,.06);box-shadow:inset 1px 0 0 rgba(255,240,153,.28);color:#FBF5DC}
 #why .vs .hd.me{color:#FFF099;font-weight:600}
 #why .vs .me b{color:#FFF099}
@@ -425,7 +425,7 @@ h1,h2,h3,.h2,b{text-wrap:balance}
 #why .reasons b{color:#F7F2E8}
 #why .reasons em{color:#FFF099;background:none}
 #why .reasons p{color:rgba(244,238,227,.62)}
-@media(max-width:760px){#why::before{background-position:72% center}#why::after{background:rgba(42,34,30,.55)}}
+@media(max-width:760px){#why::before{background-position:center 45%}#why::after{background:rgba(42,34,30,.58)}}
 @supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){#why .glass{background:rgba(42,34,30,.88)}}
 </style>
 </head>
