@@ -494,6 +494,13 @@ sup{font-size:.65em;vertical-align:super;line-height:0;margin-left:1px}
 .ing article:nth-child(3):hover .big{color:var(--clay);transform:scale(1.06)}
 }
 @media(prefers-reduced-motion:reduce){.ing article,.ing article::before,.ing .big{transition:none}}
+
+/* 2013 + 누끼 */
+.culture .yr-wrap{position:relative;display:inline-block}
+.culture .yr{position:relative;z-index:0}
+.culture .yr-cut{position:absolute;z-index:1;width:80%;height:auto;left:26%;top:52%;filter:drop-shadow(0 18px 22px rgba(58,49,44,.22));transform:translate3d(0,var(--py,0px),0) rotate(var(--pr,-4deg));will-change:transform;pointer-events:none}
+.culture .year small{position:relative;z-index:2;margin-top:clamp(90px,10vw,150px)}
+@media(max-width:760px){.culture .yr-cut{width:78%;left:34%;top:48%}.culture .year small{margin-top:96px}}
 </style>
 </head>
 <body>
@@ -720,7 +727,7 @@ sup{font-size:.65em;vertical-align:super;line-height:0;margin-left:1px}
 
 <section class="band" id="culture">
   <div class="wrap culture">
-    <p class="year rv">2013<small>지중해 식단, 유네스코 인류무형문화유산 등재</small></p>
+    <p class="year rv"><span class="yr-wrap"><span class="yr">2013</span><picture><source srcset="images/lemon-olive-cut.webp" type="image/webp"><img class="yr-cut" src="images/lemon-olive-cut.png" alt="반으로 자른 레몬과 올리브 가지" width="708" height="422" loading="lazy"></picture></span><small>지중해 식단, 유네스코 인류무형문화유산 등재</small></p>
     <div class="rv">
       <p class="label">Mediterranean morning</p>
       <h2 class="h2">올리브오일과 레몬,<br>그리스 식탁의 기본이에요.</h2>
@@ -1103,6 +1110,11 @@ sup{font-size:.65em;vertical-align:super;line-height:0;margin-left:1px}
   });
   em.addEventListener('input', () => { msg.textContent = ''; });
 }
+</script>
+<script>
+(()=>{const c=document.querySelector('.culture .yr-cut');if(!c||matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+let t=0;const f=()=>{t=0;const r=c.closest('section').getBoundingClientRect(),h=innerHeight;const p=Math.max(-1,Math.min(1,(r.top+r.height/2-h/2)/h));c.style.setProperty('--py',(p*60).toFixed(1)+'px');c.style.setProperty('--pr',(-4+p*6).toFixed(2)+'deg')};
+addEventListener('scroll',()=>{if(!t){t=requestAnimationFrame(f)}},{passive:true});f()})();
 </script>
 </body>
 </html>
