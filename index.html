@@ -400,6 +400,22 @@ h1,h2,h3,.h2,b{text-wrap:balance}
 .seal span{display:block;font-size:10.5px;letter-spacing:.06em;color:#E9DFC9;margin-top:6px;line-height:1.4}
 @media(max-width:760px){.seal{position:static;margin:0 0 22px auto;transform:rotate(-6deg)}}
 .ing-sub{color:var(--ink-2);margin-top:12px;font-size:clamp(15px,1.3vw,17px)}
+
+/* Why — 유리 질감 */
+#why{position:relative;isolation:isolate;overflow:hidden;background:#2E2622}
+#why::before{content:"";position:absolute;inset:-60px;background:url(images/hero-oil-light.jpg) center 40%/cover;filter:blur(8px) saturate(.95);z-index:-2}
+#why::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(46,38,34,.25),rgba(46,38,34,.05) 40%,rgba(46,38,34,.3));z-index:-1}
+.glass{background:rgba(250,247,240,.42);-webkit-backdrop-filter:blur(22px) saturate(1.3);backdrop-filter:blur(22px) saturate(1.3);border:1px solid rgba(255,255,255,.55);border-radius:26px;box-shadow:0 24px 70px rgba(30,24,20,.18),inset 0 1px 0 rgba(255,255,255,.6)}
+#why .why-head{padding:clamp(26px,3.4vw,48px)}
+#why .vs{border-top:0;overflow:hidden;padding:6px clamp(6px,1vw,14px)}
+#why .vs>div{border-bottom-color:rgba(58,49,44,.12)}
+#why .vs>div:nth-last-child(-n+3){border-bottom:0}
+#why .vs .me{background:linear-gradient(180deg,rgba(255,240,153,.38),rgba(255,240,153,.22));box-shadow:inset 1px 0 0 rgba(255,255,255,.7),inset -1px 0 0 rgba(255,255,255,.7)}
+#why .vs .hd.me{border-radius:18px 18px 0 0}
+#why .vs>div.me:last-child{border-radius:0 0 18px 18px}
+#why .reasons li{padding:clamp(22px,2.4vw,32px)}
+#why .reasons p,#why .why-head .lead,#why .vs .them{color:#4A403A}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.glass{background:rgba(250,247,240,.9)}}
 </style>
 </head>
 <body>
@@ -447,14 +463,14 @@ h1,h2,h3,.h2,b{text-wrap:balance}
 
 <section class="band" id="why">
   <div class="wrap">
-    <div class="why-head">
+    <div class="why-head glass">
       <div>
         <p class="label">Why one pouch</p>
         <h2 class="h2">아침마다 챙기던 5가지,<br>통 5개 대신 파우치 1장.</h2>
       </div>
       <p class="lead rv">레몬즙 한 스푼, 올리브오일 한 숟갈, 비타민C, 유산균, 엽산까지. 좋다는 건 알아도 매일 아침 통을 하나씩 여닫기는 쉽지 않아요. 옐러블리는 이 다섯 가지를 하루 한 포, 세 알에 나눠 담았어요.</p>
     </div>
-    <div class="vs rv" role="table" aria-label="따로 챙길 때와 옐러블리 비교">
+    <div class="vs glass rv" role="table" aria-label="따로 챙길 때와 옐러블리 비교">
       <div class="hd" role="columnheader"></div><div class="hd" role="columnheader">따로 챙길 때</div><div class="hd me" role="columnheader">옐러블리 한 포</div>
       <div class="k" role="rowheader">챙기는 것</div><div class="them">레몬즙 · 올리브오일 · 비타민C · 유산균 · 엽산</div><div class="me"><b>1</b>포</div>
       <div class="k" role="rowheader">여닫는 통</div><div class="them">병과 통 5개</div><div class="me"><b>0</b>찢으면 끝</div>
@@ -463,9 +479,9 @@ h1,h2,h3,.h2,b{text-wrap:balance}
       <div class="k" role="rowheader">올리브오일 산지</div><div class="them">제품마다 제각각</div><div class="me">크레타 헤라클리온 한 곳</div>
     </div>
     <ol class="reasons">
-      <li class="rv"><span class="n">1.</span><b>섞지 않은 <em>단일 산지</em> 올리브오일</b><p>여러 나라 오일을 블렌딩하지 않았어요. 그리스 크레타섬 헤라클리온 한 곳의 유기농 엑스트라버진 올리브오일만 담았어요.</p></li>
-      <li class="rv"><span class="n">2.</span><b>정제 2알과 캡슐 1알, <em>5가지 원료</em>를 한 포에</b><p>올리브오일 캡슐 한 알로 끝내지 않았어요. 레몬추출물·비타민C 정제와 엽산·특허 유산균 3종 정제를 한 알씩 더했어요.</p></li>
-      <li class="rv"><span class="n">3.</span><b>말 대신 <em>서류</em>로 확인</b><p>원료 성적서, 규격서, 원료 유기농 인증, 유산균 특허증까지. 아래에서 직접 넘겨 볼 수 있어요.</p></li>
+      <li class="glass rv"><span class="n">1.</span><b>섞지 않은 <em>단일 산지</em> 올리브오일</b><p>여러 나라 오일을 블렌딩하지 않았어요. 그리스 크레타섬 헤라클리온 한 곳의 유기농 엑스트라버진 올리브오일만 담았어요.</p></li>
+      <li class="glass rv"><span class="n">2.</span><b>정제 2알과 캡슐 1알, <em>5가지 원료</em>를 한 포에</b><p>올리브오일 캡슐 한 알로 끝내지 않았어요. 레몬추출물·비타민C 정제와 엽산·특허 유산균 3종 정제를 한 알씩 더했어요.</p></li>
+      <li class="glass rv"><span class="n">3.</span><b>말 대신 <em>서류</em>로 확인</b><p>원료 성적서, 규격서, 원료 유기농 인증, 유산균 특허증까지. 아래에서 직접 넘겨 볼 수 있어요.</p></li>
     </ol>
   </div>
 </section>
