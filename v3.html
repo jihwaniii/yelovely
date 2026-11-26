@@ -387,6 +387,19 @@ p,li,dd,h3,h4{text-wrap:pretty}
 .doc{cursor:default}
 .doc:hover img{transform:none}
 .line .card:first-child .ph img{width:38%}
+
+/* r7: 성분 타일 통일 */
+.s-ph.tile img.t-img{width:44%;height:auto;object-fit:contain;filter:drop-shadow(0 24px 28px rgba(61,59,50,.2));transition:transform 1s var(--ease)}
+.s-ph.tile img.t-img.wide{width:74%}
+.rv.in img.t-img{animation:bob 6s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-8px)}}
+.s-ph.tile>span:not(.t-dots):not(.t-venn){margin-top:22px}
+.t-lemon{background:radial-gradient(120% 80% at 80% 10%,rgba(253,249,238,.7),transparent 55%),radial-gradient(90% 70% at 10% 100%,rgba(240,188,210,.35),transparent 60%),var(--y)}
+.t-pair{background:radial-gradient(120% 80% at 20% 0%,rgba(253,249,238,.7),transparent 55%),radial-gradient(90% 70% at 100% 100%,rgba(255,233,110,.5),transparent 60%),var(--sage)}
+.t-pro{background:radial-gradient(120% 80% at 80% 0%,rgba(214,231,190,.9),transparent 60%),radial-gradient(90% 70% at 0% 100%,rgba(255,233,110,.55),transparent 60%),var(--iv)}
+.t-pro .t-venn i{background:rgba(214,231,190,.55)}
+@media(prefers-reduced-motion:reduce){.rv.in img.t-img{animation:none}}
+.mosaic figure:nth-child(3) img{object-position:62% 50%}
 </style>
 </head>
 <body>
@@ -425,7 +438,7 @@ p,li,dd,h3,h4{text-wrap:pretty}
 <div class="mosaic" aria-label="옐러블리의 원료 사진">
   <figure class="rv"><img src="images/ch-lemon.jpg" alt="반으로 자른 레몬과 레몬 한 알" loading="lazy"><figcaption>Lemon</figcaption><b>fresh</b></figure>
   <figure class="rv"><img src="images/why-oil-capsule.jpg" alt="올리브오일 위의 캡슐" loading="lazy"><figcaption>Olive oil</figcaption><b>pure</b></figure>
-  <figure class="rv"><img src="images/ch-olive-branch.jpg" alt="올리브 가지" loading="lazy"><figcaption>Crete</figcaption><b>daily</b></figure>
+  <figure class="rv"><img src="images/mosaic-folic.jpg" alt="엽산·유산균 정제" loading="lazy"><figcaption>Folic · Probiotics</figcaption><b>daily</b></figure>
 </div>
 
 <section class="sec">
@@ -504,13 +517,13 @@ p,li,dd,h3,h4{text-wrap:pretty}
   <div class="wrap">
     <h2 class="h2 rv" style="margin-bottom:clamp(40px,5vw,70px)">따로 챙기던 데는 이유가 있었어요.<br>그래서 한 포에 모았어요.</h2>
     <article class="story">
-      <figure class="s-ph rv"><img src="images/ch-lemon.jpg" alt="반으로 자른 레몬" loading="lazy"></figure>
+      <figure class="s-ph tile t-lemon rv"><em class="t-lb">Lemon tablet</em><img class="t-img" src="images/tablet.png" alt="레몬정" loading="lazy"><span>레몬추출물 + 비타민C, 정제 1알</span><em class="t-src">아침 첫 한 알</em></figure>
       <div class="rv"><span class="cap">Lemon</span><h3>아침을 깨우는 첫 맛, 레몬</h3>
         <p>아침에 레몬물부터 마시는 사람들이 있어요. 덜 깬 입안을 단번에 산뜻하게 바꿔 주는 그 신맛 때문이에요. 다만 매일 레몬을 짜거나 따르기는 번거롭고, 신맛이 입안에 오래 남는 것도 부담이에요.</p>
         <p>옐러블리는 레몬추출물을 비타민C와 함께 정제 한 알에 담았어요. 씹지 않고 물과 함께 삼키면 돼요.</p></div>
     </article>
     <article class="story">
-      <figure class="s-ph cut rv"><img src="images/lemon-olive-cut.webp" alt="레몬과 올리브 가지" loading="lazy"></figure>
+      <figure class="s-ph tile t-pair rv"><em class="t-lb">Lemon × Olive</em><img class="t-img wide" src="images/lemon-olive-cut.webp" alt="레몬과 올리브 가지" loading="lazy"><span>올리브오일과 레몬, 지중해 식탁의 오래된 짝</span><em class="t-src">Ladolemono</em></figure>
       <div class="rv"><span class="cap">Lemon × Olive</span><h3>레몬과 올리브오일은<br>원래 <span class="nw">한 짝이에요</span></h3>
         <p>그리스 식탁에는 '라돌레모노(ladolemono)'라는 소스가 있어요. 올리브오일과 레몬즙을 섞은 것으로, 생선에도 샐러드에도 구운 채소에도 이 둘이 함께 올라가요.</p>
         <p>고소하고 묵직한 오일에 레몬의 산뜻함이 더해지면 서로의 맛이 균형을 잡아요. 옐러블리는 이 오래된 짝을 한 포에 담았어요.</p></div>
