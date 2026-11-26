@@ -494,21 +494,29 @@ html.cc input,html.cc textarea{cursor:text!important}
 }
 
 /* mobile fixes 1126 */
+.hero-ph{display:none}
 @media(max-width:760px){
   .fy{grid-template-columns:1fr;row-gap:0}
   .fy li{padding:22px 0 24px;border-bottom:1px solid var(--ln)}
   .fy li:last-child{border-bottom:0}
   .med-big img{position:relative;left:auto;top:auto;display:block;width:86%;margin:-18% 0 0 auto}
   .med-big span{margin-top:14px}
+  .cmp{grid-template-columns:1fr 1fr}
+  .cmp .hd:first-child{display:none}
+  .cmp .k{grid-column:1/-1;padding:18px 0 6px;border-bottom:0;font-size:12px;font-weight:700;letter-spacing:.04em;color:var(--ch2)}
+  .cmp .t,.cmp .me{padding:14px;font-size:14.5px;line-height:1.5}
+  .cmp .hd{padding:14px}
   @media(hover:none){
     .spec.in>div::after{height:100%;transition-duration:1s}
     .spec.in>div:nth-child(1)::after{transition-delay:.5s}.spec.in>div:nth-child(2)::after{transition-delay:.75s}
     .spec.in>div:nth-child(3)::after{transition-delay:1s}.spec.in>div:nth-child(4)::after{transition-delay:1.25s}
   }
-  .hero{--L:calc(100svh - 210px)}
-  .hero-word,.hero-lens{width:var(--L);left:calc(100% - var(--g) - var(--L) * .1053);top:calc(50% + 50px);translate:-50% -50%;rotate:90deg}
-  .hero-cut{display:none}
-  .hero-bot{flex-direction:column;align-items:flex-start;max-width:calc(100% - var(--L) * .2107 - 24px)}
+  .hero{display:flex;flex-direction:column;gap:18px;padding-top:118px}
+  .hero>div:first-child{display:none}
+  .hero-lens,.hero-cut{display:none}
+  .hero-word{position:relative;left:auto;top:auto;translate:none;width:100%;flex:none}
+  .hero-ph{display:block;flex:1 1 0;min-height:220px;width:100%;object-fit:cover;object-position:50% 40%}
+  .hero-bot{flex-direction:column;align-items:flex-start;gap:16px;max-width:none}
   .hero-h{font-size:clamp(34px,10vw,44px)}
 }
 </style>
@@ -539,6 +547,7 @@ html.cc input,html.cc textarea{cursor:text!important}
 <section class="hero" id="hero">
   <div></div>
   <img class="hero-word" src="images/wordmark.svg" alt="" aria-hidden="true">
+  <img class="hero-ph" src="images/hero-oil-light.jpg" alt="빛을 받아 흐르는 올리브오일" fetchpriority="high">
   <svg class="hero-lens" id="lens" viewBox="0 0 223.401 47.06" preserveAspectRatio="none" aria-hidden="true"><defs><clipPath id="wmc"><path d="M3.305 47.06 L3.305 41.57 L8.739 41.57 C11.205 41.57 12.213 40.898 13.053 38.993 L13.725 37.536 L0 9.692 L6.778 9.692 L13.894 24.483 L16.639 31.15 L17.087 31.15 L19.72 24.427 L26.275 9.692 L32.942 9.692 L18.432 40.561 C16.135 45.547 12.997 47.06 7.283 47.06 Z"/><path d="M34.786 23.642 C34.786 14.958 40.725 9.132 49.801 9.132 C58.429 9.132 64.312 13.894 64.312 22.354 C64.312 23.362 64.255 24.146 64.087 24.987 L40.445 24.987 C40.669 30.365 43.303 33.222 49.745 33.222 C55.571 33.222 57.98 31.317 57.98 28.012 L57.98 27.564 L64.031 27.564 L64.031 28.068 C64.031 34.007 58.204 38.097 49.913 38.097 C40.781 38.097 34.786 32.942 34.786 23.642 Z M40.501 21.626 L58.597 21.626 L58.597 21.513 C58.597 16.359 55.628 13.894 49.689 13.894 C43.527 13.894 40.837 16.639 40.501 21.626 Z"/><path d="M68.846 37.536 L68.846 0 L74.896 0 L74.896 37.536 Z"/><path d="M79.265 23.642 C79.265 14.958 85.483 9.132 94.727 9.132 C104.027 9.132 110.246 14.958 110.246 23.642 C110.246 32.214 104.027 38.097 94.727 38.097 C85.483 38.097 79.265 32.214 79.265 23.642 Z M104.307 23.642 C104.307 17.704 101.506 14.455 94.727 14.455 C88.004 14.455 85.203 17.704 85.203 23.642 C85.203 29.525 88.004 32.718 94.727 32.718 C101.506 32.718 104.307 29.525 104.307 23.642 Z"/><path d="M125.088 37.536 L112.091 9.692 L118.758 9.692 L128.674 31.654 L129.122 31.654 L139.038 9.692 L145.593 9.692 L132.483 37.536 Z"/><path d="M147.55 23.642 C147.55 14.958 153.488 9.132 162.564 9.132 C171.192 9.132 177.075 13.894 177.075 22.354 C177.075 23.362 177.018 24.146 176.851 24.987 L153.209 24.987 C153.433 30.365 156.066 33.222 162.508 33.222 C168.334 33.222 170.744 31.317 170.744 28.012 L170.744 27.564 L176.794 27.564 L176.794 28.068 C176.794 34.007 170.968 38.097 162.676 38.097 C153.544 38.097 147.55 32.942 147.55 23.642 Z M153.264 21.626 L171.36 21.626 L171.36 21.513 C171.36 16.359 168.391 13.894 162.452 13.894 C156.29 13.894 153.6 16.639 153.264 21.626 Z"/><path d="M181.609 37.536 L181.609 0 L187.659 0 L187.659 37.536 Z"/><path d="M193.764 47.06 L193.764 41.57 L199.199 41.57 C201.663 41.57 202.672 40.898 203.513 38.993 L204.185 37.536 L190.459 9.692 L197.238 9.692 L204.353 24.483 L207.098 31.15 L207.546 31.15 L210.18 24.427 L216.734 9.692 L223.401 9.692 L208.891 40.561 C206.594 45.547 203.457 47.06 197.742 47.06 Z"/></clipPath></defs><image href="images/hero-olive-lens.jpg" x="0" y="-40" width="223.401" height="127" preserveAspectRatio="xMidYMid slice" clip-path="url(#wmc)"/></svg>
   <div class="hero-bot">
     <h2 class="hero-h">아침 10초,<br>한 포면 돼요.</h2>
