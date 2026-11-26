@@ -329,10 +329,21 @@ footer .f-top{padding:clamp(28px,3.4vw,52px)}
 .org-sec .grades{background:transparent;-webkit-backdrop-filter:none;backdrop-filter:none}
 .org-sec .grades-n{padding:0;margin-top:14px;background:transparent}
 footer .f-top{padding:0}
+
+/* r4: 워드마크 렌즈 */
+.hero-lens{position:absolute;left:50%;top:50%;translate:-50% -54%;width:min(92vw,175vh);aspect-ratio:223.401/47.06;clip-path:circle(0px at 50% 50%);pointer-events:none;z-index:1}
+.hero-lens{height:auto;overflow:visible}
+@media(max-width:760px){.hero-lens{width:92vw;top:44%}}
+/* r4: 버튼 테두리, 줄바꿈 */
+.btn{border:0;font-family:inherit;cursor:pointer}
+.btn:hover{background:var(--ch);color:var(--iv);box-shadow:none;opacity:.86}
+.btn.ghost:hover{opacity:1}
+.btn.ghost{box-shadow:inset 0 0 0 1.5px var(--ch)}
+p,li,dd,h3,h4{text-wrap:pretty}
 </style>
 </head>
 <body>
-<div class="tick" aria-label="2027년 2월 와디즈 오픈"><div class="tick-t"><span>2027.02 와디즈 오픈</span><i>●</i><span>레몬 · 비타민C · 엑스트라버진 올리브오일 · 유산균 · 엽산</span><i>●</i><span>찢고, 3알, 끝.</span><i>●</i><span>오픈 알림 신청하고 가장 먼저 만나기</span><i>●</i></div></div>
+<div class="tick" aria-label="2027년 2월 와디즈 오픈"><div class="tick-t"><span>2027.02 와디즈 오픈</span><i>●</i><span>레몬 · 비타민C · 엑스트라버진 올리브오일 · 유산균 · 엽산</span><i>●</i><span>아침 10초, 한 포면 돼요.</span><i>●</i><span>오픈 알림 신청하고 가장 먼저 만나기</span><i>●</i></div></div>
 <header class="nav" id="nav">
   <a class="logo" href="#top" aria-label="yelovely 홈"><img src="images/logo-top.png" alt="yelovely"></a>
   <nav aria-label="주요 메뉴"><ul>
@@ -348,7 +359,7 @@ footer .f-top{padding:0}
 <section class="hero" id="hero">
   <div></div>
   <img class="hero-word" src="images/wordmark.svg" alt="" aria-hidden="true">
-  <img class="hero-cut" src="images/lemon-olive-cut.webp" alt="" aria-hidden="true">
+  <svg class="hero-lens" id="lens" viewBox="0 0 223.401 47.06" preserveAspectRatio="none" aria-hidden="true"><defs><clipPath id="wmc"><path d="M3.305 47.06 L3.305 41.57 L8.739 41.57 C11.205 41.57 12.213 40.898 13.053 38.993 L13.725 37.536 L0 9.692 L6.778 9.692 L13.894 24.483 L16.639 31.15 L17.087 31.15 L19.72 24.427 L26.275 9.692 L32.942 9.692 L18.432 40.561 C16.135 45.547 12.997 47.06 7.283 47.06 Z"/><path d="M34.786 23.642 C34.786 14.958 40.725 9.132 49.801 9.132 C58.429 9.132 64.312 13.894 64.312 22.354 C64.312 23.362 64.255 24.146 64.087 24.987 L40.445 24.987 C40.669 30.365 43.303 33.222 49.745 33.222 C55.571 33.222 57.98 31.317 57.98 28.012 L57.98 27.564 L64.031 27.564 L64.031 28.068 C64.031 34.007 58.204 38.097 49.913 38.097 C40.781 38.097 34.786 32.942 34.786 23.642 Z M40.501 21.626 L58.597 21.626 L58.597 21.513 C58.597 16.359 55.628 13.894 49.689 13.894 C43.527 13.894 40.837 16.639 40.501 21.626 Z"/><path d="M68.846 37.536 L68.846 0 L74.896 0 L74.896 37.536 Z"/><path d="M79.265 23.642 C79.265 14.958 85.483 9.132 94.727 9.132 C104.027 9.132 110.246 14.958 110.246 23.642 C110.246 32.214 104.027 38.097 94.727 38.097 C85.483 38.097 79.265 32.214 79.265 23.642 Z M104.307 23.642 C104.307 17.704 101.506 14.455 94.727 14.455 C88.004 14.455 85.203 17.704 85.203 23.642 C85.203 29.525 88.004 32.718 94.727 32.718 C101.506 32.718 104.307 29.525 104.307 23.642 Z"/><path d="M125.088 37.536 L112.091 9.692 L118.758 9.692 L128.674 31.654 L129.122 31.654 L139.038 9.692 L145.593 9.692 L132.483 37.536 Z"/><path d="M147.55 23.642 C147.55 14.958 153.488 9.132 162.564 9.132 C171.192 9.132 177.075 13.894 177.075 22.354 C177.075 23.362 177.018 24.146 176.851 24.987 L153.209 24.987 C153.433 30.365 156.066 33.222 162.508 33.222 C168.334 33.222 170.744 31.317 170.744 28.012 L170.744 27.564 L176.794 27.564 L176.794 28.068 C176.794 34.007 170.968 38.097 162.676 38.097 C153.544 38.097 147.55 32.942 147.55 23.642 Z M153.264 21.626 L171.36 21.626 L171.36 21.513 C171.36 16.359 168.391 13.894 162.452 13.894 C156.29 13.894 153.6 16.639 153.264 21.626 Z"/><path d="M181.609 37.536 L181.609 0 L187.659 0 L187.659 37.536 Z"/><path d="M193.764 47.06 L193.764 41.57 L199.199 41.57 C201.663 41.57 202.672 40.898 203.513 38.993 L204.185 37.536 L190.459 9.692 L197.238 9.692 L204.353 24.483 L207.098 31.15 L207.546 31.15 L210.18 24.427 L216.734 9.692 L223.401 9.692 L208.891 40.561 C206.594 45.547 203.457 47.06 197.742 47.06 Z"/></clipPath></defs><image href="images/olive-macro.jpg" x="0" y="-40" width="223.401" height="127" preserveAspectRatio="xMidYMid slice" clip-path="url(#wmc)"/></svg>
   <div class="hero-bot">
     <h1 class="hero-h">아침 10초,<br>한 포면 돼요.</h1>
     <a class="btn" href="#news">와디즈 오픈 알림 받기</a>
@@ -483,7 +494,7 @@ footer .f-top{padding:0}
       <p class="lead" style="margin-top:20px">지중해 식단은 특별한 메뉴가 아니라 먹는 방식이에요. 제철 채소와 과일, 통곡물과 콩, 생선을 기본으로 하고 버터 대신 올리브오일을, 소금 대신 레몬과 허브를 써요.</p>
       <ul class="tags"><li class="on">올리브오일</li><li class="on">레몬</li><li>제철 채소·과일</li><li>통곡물·콩</li><li>생선</li><li>허브</li></ul>
       <div class="facts"><p><b>7<small>개국</small></b><span>그리스·이탈리아·스페인 등<br>지중해 7개국이 함께 지켜 온 식문화</span></p><p><b>9<small>년 연속</small></b><span>U.S. News &amp; World Report<br>'Best Diets' 종합 1위 (2026년 기준)</span></p></div>
-      <p class="note">출처 · UNESCO Intangible Cultural Heritage, “Mediterranean diet” · U.S. News &amp; World Report, Best Diets 2026<br>식단에 대한 소개이며 제품의 효과를 뜻하지 않아요.</p>
+      <p class="note">출처 · UNESCO Intangible Cultural Heritage, “Mediterranean diet”<br>출처 · U.S. News &amp; World Report, Best Diets 2026<br>식단에 대한 소개이며 제품의 효과를 뜻하지 않아요.</p>
     </div>
   </div>
 </section>
@@ -642,8 +653,18 @@ const cnt=el=>{const to=+el.dataset.count;if(reduce)return;const t0=performance.
 const io2=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){cnt(e.target);io2.unobserve(e.target)}}),{threshold:.5});
 document.querySelectorAll('[data-count]').forEach(el=>{if(!reduce)el.textContent='0';io2.observe(el)});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
-const cut=document.querySelector('.hero-cut'),hero=document.getElementById('hero');
-if(cut&&!reduce&&matchMedia('(pointer:fine)').matches){hero.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;cut.style.setProperty('--mx',(x*28).toFixed(1)+'px');cut.style.setProperty('--my',(y*20).toFixed(1)+'px');cut.style.setProperty('--mr',(x*4).toFixed(2)+'deg')});hero.addEventListener('pointerleave',()=>{['--mx','--my','--mr'].forEach(k=>cut.style.setProperty(k,k=='--mr'?'0deg':'0px'))})}
+const hero=document.getElementById('hero'),lens=document.getElementById('lens');
+let lx=0,ly=0,tx=0,ty=0,lr=0,tr=0,lraf=0,auto=!matchMedia('(pointer:fine)').matches,t0=performance.now();
+const lt=()=>{const b=lens.getBoundingClientRect();
+  if(auto){const k=(performance.now()-t0)/1000;tx=b.width*(.5+.38*Math.sin(k*.35));ty=b.height*(.5+.25*Math.sin(k*.7));tr=Math.min(b.height*.9,150)}
+  lx+=(tx-lx)*.12;ly+=(ty-ly)*.12;lr+=(tr-lr)*.1;
+  lens.style.clipPath=`circle(${lr.toFixed(1)}px at ${lx.toFixed(1)}px ${ly.toFixed(1)}px)`;
+  lraf=requestAnimationFrame(lt)};
+if(!reduce){
+  hero.addEventListener('pointermove',e=>{const b=lens.getBoundingClientRect();tx=e.clientX-b.left;ty=e.clientY-b.top;tr=Math.min(innerWidth*.11,170)});
+  hero.addEventListener('pointerleave',()=>{tr=0});
+  new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){if(!lraf)lt()}else{cancelAnimationFrame(lraf);lraf=0}})).observe(hero);
+}
 const nav=document.getElementById('nav');
 const onS=()=>nav.classList.toggle('solid',scrollY>innerHeight*.5);
 addEventListener('scroll',onS,{passive:true});onS();
