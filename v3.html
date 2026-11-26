@@ -91,7 +91,7 @@ mark.pk{background:linear-gradient(transparent 58%,var(--pink) 58%)}
 .pains li i{font-style:normal;font-weight:700;font-size:12px;color:var(--ch2);padding-top:5px}
 .ans{margin-top:28px;padding:28px 30px;background:var(--y);border-radius:20px}
 .ans p{font-weight:700;font-size:clamp(20px,1.9vw,27px);letter-spacing:-.04em;line-height:1.4}
-.ans span{display:block;margin-top:10px;font-size:14.5px;color:var(--ch2)}
+.ans>span{display:block;margin-top:10px;font-size:14.5px;color:var(--ch2)}
 .note{margin-top:34px;font-size:12px;color:var(--ch2)}
 @media(max-width:860px){.ole{grid-template-columns:1fr}}
 
@@ -160,9 +160,9 @@ sup{font-size:.62em;vertical-align:super;line-height:0}
 /* mediterranean */
 .med{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(40px,6vw,110px);align-items:center}
 .med-big{position:relative}
-.med-big b{display:block;font-weight:700;font-size:clamp(110px,15vw,240px);letter-spacing:-.08em;line-height:.8}
+.med-big b{display:block;color:var(--sage);font-weight:700;font-size:clamp(110px,15vw,240px);letter-spacing:-.08em;line-height:.8}
 .med-big img{position:absolute;left:28%;top:38%;width:72%;filter:drop-shadow(0 24px 30px rgba(61,59,50,.22))}
-.med-big span{display:block;margin-top:clamp(110px,12vw,190px);font-size:13px;color:var(--ch2)}
+.med-big span{position:relative;z-index:1;display:block;margin-top:clamp(110px,12vw,190px);font-size:13px;color:var(--ch2)}
 .tags{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
 .tags li{font-size:13px;padding:6px 14px;border-radius:999px;box-shadow:inset 0 0 0 1px var(--ch)}
 .tags li.on{background:var(--pink);box-shadow:none}
@@ -492,6 +492,25 @@ html.cc input,html.cc textarea{cursor:text!important}
 .cur.alt{background:var(--pk,#F0BCD2)}
 .cur.alt.big{background:rgba(240,188,210,.75)}
 }
+
+/* mobile fixes 1126 */
+@media(max-width:760px){
+  .fy{grid-template-columns:1fr;row-gap:0}
+  .fy li{padding:22px 0 24px;border-bottom:1px solid var(--ln)}
+  .fy li:last-child{border-bottom:0}
+  .med-big img{position:relative;left:auto;top:auto;display:block;width:86%;margin:-18% 0 0 auto}
+  .med-big span{margin-top:14px}
+  @media(hover:none){
+    .spec.in>div::after{height:100%;transition-duration:1s}
+    .spec.in>div:nth-child(1)::after{transition-delay:.5s}.spec.in>div:nth-child(2)::after{transition-delay:.75s}
+    .spec.in>div:nth-child(3)::after{transition-delay:1s}.spec.in>div:nth-child(4)::after{transition-delay:1.25s}
+  }
+  .hero{--L:calc(100svh - 210px)}
+  .hero-word,.hero-lens{width:var(--L);left:calc(100% - var(--g) - var(--L) * .1053);top:calc(50% + 50px);translate:-50% -50%;rotate:90deg}
+  .hero-cut{display:none}
+  .hero-bot{flex-direction:column;align-items:flex-start;max-width:calc(100% - var(--L) * .2107 - 24px)}
+  .hero-h{font-size:clamp(34px,10vw,44px)}
+}
 </style>
 </head>
 <body>
@@ -545,10 +564,10 @@ html.cc input,html.cc textarea{cursor:text!important}
 <section class="sec">
   <div class="wrap">
     <div class="spec rv">
-      <div><span class="cap">Pouch</span><b><span data-count="1">1</span></b><p>하루 한 포.<br class="bd"> 찢어서 물과 함께.</p></div>
-      <div><span class="cap">Pills</span><b><span data-count="3">3</span></b><p>레몬정 · 엽산정 · 올리브 캡슐</p></div>
-      <div><span class="cap">Days</span><b><span data-count="14">14</span><small>/28</small></b><p>14포 한 상자, 두 상자면 28일</p></div>
-      <div><span class="cap">Origin</span><b><span data-count="1">1</span></b><p>그리스 크레타섬 헤라클리온, 한 곳의 올리브</p></div>
+      <div><span class="cap">Pouch</span><b><span data-count="1">1</span></b><p>하루 한 포.<br>찢어서 물과 함께.</p></div>
+      <div><span class="cap">Pills</span><b><span data-count="3">3</span></b><p>레몬정 · 엽산정<br>올리브 캡슐</p></div>
+      <div><span class="cap">Days</span><b><span data-count="14">14</span><small>/28</small></b><p>14포 한 상자,<br>두 상자면 28일</p></div>
+      <div><span class="cap">Origin</span><b><span data-count="1">1</span></b><p>그리스 크레타섬<br>헤라클리온 한 곳</p></div>
     </div>
   </div>
 </section>
@@ -579,7 +598,7 @@ html.cc input,html.cc textarea{cursor:text!important}
         <li class="rv"><i>03</i><span>출근길 가방에 병을 넣을 순 없으니까</span></li>
         <li class="rv"><i>04</i><span>냉장고 안쪽으로 밀려난 레몬즙 한 병</span></li>
       </ul>
-      <div class="ans rv"><p>옐러블리는 그 아침을 한 포로 접었어요.</p><span>올리브오일은 캡슐로, 레몬은 정제로. 여기에 엽산과 유산균 한 알을 더해, <span class="nw">물 한 모금이면 끝.</span></span></div>
+      <div class="ans rv"><p>옐러블리는 그 아침을<br>한 포로 접었어요.</p><span>올리브오일은 캡슐로, 레몬은 정제로.<br>여기에 엽산과 유산균 한 알을 더해,<br>물 한 모금이면 끝.</span></div>
     </div>
   </div>
   <p class="wrap note">1. 세계일보, 2026.02.20 보도 인용.<br>올레샷은 식습관 트렌드를 소개한 것이며 특정 효과를 뜻하지 않아요.</p>
@@ -842,13 +861,13 @@ document.querySelectorAll('[data-count]').forEach(el=>{if(!reduce)el.textContent
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 const hero=document.getElementById('hero'),lens=document.getElementById('lens');
 let lx=0,ly=0,tx=0,ty=0,lr=0,tr=0,lraf=0,auto=!matchMedia('(pointer:fine)').matches,t0=performance.now();
-const lt=()=>{const b=lens.getBoundingClientRect();
+const lt=()=>{const r=lens.getBoundingClientRect(),rot=r.height>r.width,b=rot?{width:r.height,height:r.width}:r;
   if(auto){const k=(performance.now()-t0)/1000;tx=b.width*(.5+.38*Math.sin(k*.35));ty=b.height*(.5+.25*Math.sin(k*.7));tr=Math.min(b.height*.9,150)}
   lx+=(tx-lx)*.12;ly+=(ty-ly)*.12;lr+=(tr-lr)*.1;
   lens.style.clipPath=`circle(${lr.toFixed(1)}px at ${lx.toFixed(1)}px ${ly.toFixed(1)}px)`;
   lraf=requestAnimationFrame(lt)};
 if(!reduce){
-  hero.addEventListener('pointermove',e=>{const b=lens.getBoundingClientRect();tx=e.clientX-b.left;ty=e.clientY-b.top;tr=Math.min(innerWidth*.11,170)});
+  hero.addEventListener('pointermove',e=>{const b=lens.getBoundingClientRect();if(b.height>b.width){tx=e.clientY-b.top;ty=b.right-e.clientX}else{tx=e.clientX-b.left;ty=e.clientY-b.top};tr=Math.min(innerWidth*.11,170)});
   hero.addEventListener('pointerleave',()=>{tr=0});
   new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){if(!lraf)lt()}else{cancelAnimationFrame(lraf);lraf=0}})).observe(hero);
 }
