@@ -12,7 +12,7 @@
 @font-face{font-family:'Pretendard';src:url('fonts/Pretendard-Bold.woff2') format('woff2');font-weight:700;font-display:swap}
 @font-face{font-family:'MICE';src:url('fonts/MICEMyungjo.woff2') format('woff2');font-weight:400;font-display:swap}
 
-:root{--y:#FFE96E;--sage:#D6E7BE;--pink:#ECB6CD;--iv:#FDF9EE;--ch:#3D3B32;--ch2:rgba(61,59,50,.68);--ln:rgba(61,59,50,.2);--g:clamp(20px,4.4vw,72px);--ease:cubic-bezier(.2,.7,.2,1)}
+:root{--y:#FFE96E;--sage:#D6E7BE;--pink:#F0BCD2;--iv:#FDF9EE;--ch:#3D3B32;--ch2:rgba(61,59,50,.68);--ln:rgba(61,59,50,.2);--g:clamp(20px,4.4vw,72px);--ease:cubic-bezier(.2,.7,.2,1)}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{background:var(--iv);color:var(--ch);font-family:'Pretendard',-apple-system,BlinkMacSystemFont,sans-serif;font-size:16px;line-height:1.7;word-break:keep-all;-webkit-font-smoothing:antialiased}
@@ -307,6 +307,23 @@ footer{background:var(--sage);padding:clamp(70px,8vw,110px) 0 28px}
 @media(hover:hover){.ans:hover{transform:rotate(-1deg) scale(1.01)}}
 @media(prefers-reduced-motion:reduce){.tick-t{animation:none}.spec.in>div{animation:none}}
 .cnt{font-style:normal}
+
+/* r3: 워드마크 이미지 + 누끼 위치 */
+.hero-word{width:min(92vw,175vh);height:auto;line-height:normal;font-size:0}
+.hero-cut{width:min(34vw,48vh);translate:-30% 2%;transform:translate3d(var(--mx,0px),var(--my,0px),0) rotate(var(--mr,0deg));transition:opacity 1.4s var(--ease),transform .9s cubic-bezier(.2,.8,.2,1)}
+.hero:not(.ready) .hero-cut{transform:translateY(30px)}
+@media(max-width:760px){.hero-word{width:92vw;top:44%}.hero-cut{width:62vw;translate:-38% 10%}}
+.f-word{width:100%;height:auto;margin-top:clamp(50px,6vw,90px);font-size:0;line-height:normal}
+/* r3: 연두 배경 위 콘텐츠 패널 */
+.pnl{background:rgba(253,249,238,.78);-webkit-backdrop-filter:blur(16px) saturate(1.1);backdrop-filter:blur(16px) saturate(1.1);box-shadow:inset 0 0 0 1px rgba(253,249,238,.9)}
+.pills-sec .wrap>.pnl{padding:clamp(40px,5vw,80px) clamp(20px,4vw,64px)}
+.pills-sec .cmp{background:transparent}
+.org-sec .org-tx{padding:clamp(28px,3.4vw,56px)}
+.org-sec .grades{background:rgba(253,249,238,.78);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px)}
+.org-sec .grades article.me{background:var(--y)}
+.org-sec .grades-n{display:inline-block;margin-top:0;padding:12px 16px;background:rgba(253,249,238,.78)}
+footer .f-top{padding:clamp(28px,3.4vw,52px)}
+@media(max-width:520px){.f-form{flex-direction:column}.f-form .btn{width:100%}}
 </style>
 </head>
 <body>
@@ -325,7 +342,7 @@ footer{background:var(--sage);padding:clamp(70px,8vw,110px) 0 28px}
 <main id="top">
 <section class="hero" id="hero">
   <div></div>
-  <p class="hero-word" aria-hidden="true">yelovely</p>
+  <img class="hero-word" src="images/wordmark.svg" alt="" aria-hidden="true">
   <img class="hero-cut" src="images/lemon-olive-cut.webp" alt="" aria-hidden="true">
   <div class="hero-bot">
     <h1 class="hero-h">아침 10초,<br>한 포면 돼요.</h1>
@@ -386,6 +403,7 @@ footer{background:var(--sage);padding:clamp(70px,8vw,110px) 0 28px}
 
 <section class="sec pills-sec" id="inside">
   <div class="wrap">
+    <div class="pnl">
     <div class="pills-head">
       <h2 class="h2 rv">한 포를 펼치면, 3알.</h2>
       <p class="lead rv">기름은 캡슐에, 가루는 정제에. 섞이면 안 되는 것은 나눠 담았어요.</p>
@@ -402,6 +420,7 @@ footer{background:var(--sage);padding:clamp(70px,8vw,110px) 0 28px}
       <div class="k" role="cell">아침 준비</div><div class="t" role="cell">하나씩 덜고 따르기</div><div class="me" role="cell">3알 삼키기</div>
       <div class="k" role="cell">들고 다니기</div><div class="t" role="cell">병째 챙기기 어려워요</div><div class="me" role="cell">손바닥보다 작은 파우치</div>
       <div class="k" role="cell">올리브오일 산지</div><div class="t" role="cell">제품마다 제각각</div><div class="me" role="cell">크레타 헤라클리온 한 곳</div>
+    </div>
     </div>
   </div>
 </section>
@@ -474,7 +493,7 @@ footer{background:var(--sage);padding:clamp(70px,8vw,110px) 0 28px}
   <div class="wrap">
     <div class="org">
       <figure class="org-ph rv"><img src="images/crete-tree.jpg" alt="크레타의 올리브 나무" loading="lazy"></figure>
-      <div class="rv">
+      <div class="rv pnl org-tx">
         <h2 class="h2">여러 나라를 섞지 않았어요.<br>크레타섬 헤라클리온, <span class="nw">한 곳.</span></h2>
         <p class="lead" style="margin-top:20px">원료가 어디서 왔는지 한 곳으로 정확히 말할 수 있도록, 단일 산지의 유기농 엑스트라버진 올리브오일을 골랐어요.</p>
         <dl class="dl">
@@ -590,7 +609,7 @@ footer{background:var(--sage);padding:clamp(70px,8vw,110px) 0 28px}
 
 <footer id="news">
   <div class="wrap">
-    <div class="f-top">
+    <div class="f-top pnl">
       <div>
         <h2>매일 아침 먹는 거니까,<br>아무거나 먹을 순 없죠.</h2>
         <form class="f-form" onsubmit="event.preventDefault();this.querySelector('button').textContent='신청 완료';">
@@ -601,7 +620,7 @@ footer{background:var(--sage);padding:clamp(70px,8vw,110px) 0 28px}
       </div>
       <nav class="f-nav" aria-label="하단 메뉴"><a href="#routine">루틴</a><a href="#inside">원료</a><a href="#origin">산지</a><a href="#papers">서류</a><a href="#faq">자주 묻는 질문</a></nav>
     </div>
-    <p class="f-word" aria-hidden="true">yelovely</p>
+    <img class="f-word" src="images/wordmark.svg" alt="" aria-hidden="true">
     <div class="legal"><span>본 제품은 의약품 또는 건강기능식품이 아닙니다.</span><span style="display:inline-flex;align-items:center;gap:18px">© 2026 yelovely<a class="to-top" href="#top" id="toTop">↑ TOP</a></span></div>
   </div>
 </footer>
@@ -616,6 +635,8 @@ const cnt=el=>{const to=+el.dataset.count;if(reduce)return;const t0=performance.
 const io2=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){cnt(e.target);io2.unobserve(e.target)}}),{threshold:.5});
 document.querySelectorAll('[data-count]').forEach(el=>{if(!reduce)el.textContent='0';io2.observe(el)});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+const cut=document.querySelector('.hero-cut'),hero=document.getElementById('hero');
+if(cut&&!reduce&&matchMedia('(pointer:fine)').matches){hero.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;cut.style.setProperty('--mx',(x*28).toFixed(1)+'px');cut.style.setProperty('--my',(y*20).toFixed(1)+'px');cut.style.setProperty('--mr',(x*4).toFixed(2)+'deg')});hero.addEventListener('pointerleave',()=>{['--mx','--my','--mr'].forEach(k=>cut.style.setProperty(k,k=='--mr'?'0deg':'0px'))})}
 const nav=document.getElementById('nav');
 const onS=()=>nav.classList.toggle('solid',scrollY>innerHeight*.5);
 addEventListener('scroll',onS,{passive:true});onS();
