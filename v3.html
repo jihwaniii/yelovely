@@ -400,6 +400,25 @@ p,li,dd,h3,h4{text-wrap:pretty}
 .t-pro .t-venn i{background:rgba(214,231,190,.55)}
 @media(prefers-reduced-motion:reduce){.rv.in img.t-img{animation:none}}
 .mosaic figure:nth-child(3) img{object-position:62% 50%}
+
+/* r8: MIRA형 캠페인 오프닝 */
+.camp{position:relative;height:100svh;min-height:620px;overflow:hidden;color:var(--ch)}
+.camp-ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;transform:scale(1.06);transition:transform 2.4s cubic-bezier(.2,.7,.2,1)}
+.camp.ready .camp-ph{transform:none}
+.camp-txt{position:absolute;top:clamp(108px,12.5vh,124px);left:clamp(24px,6vw,110px);width:min(360px,30vw);font-size:clamp(12.5px,.95vw,14.5px);line-height:1.72;font-weight:600;text-align:justify;text-wrap:auto;opacity:0;transform:translateY(14px);transition:opacity 1.2s .5s,transform 1.2s .5s var(--ease)}
+.camp-side{position:absolute;left:clamp(14px,2.4vw,34px);bottom:clamp(90px,14vh,150px);writing-mode:vertical-rl;transform:rotate(180deg);font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--iv);opacity:.95}
+.camp-h{position:absolute;left:0;right:0;bottom:clamp(40px,8vh,90px);text-align:center;color:var(--iv);font-weight:500;font-size:clamp(30px,5.2vw,86px);letter-spacing:-.02em;line-height:1;text-shadow:0 2px 30px rgba(61,59,50,.25);opacity:0;transform:translateY(20px);transition:opacity 1.2s .8s,transform 1.2s .8s var(--ease)}
+.camp-h b{font-weight:800}
+.camp.ready .camp-txt,.camp.ready .camp-h{opacity:1;transform:none}
+@media(max-width:760px){
+  .camp{height:auto;min-height:0;display:flex;flex-direction:column;background:var(--iv);padding-top:96px}
+  .camp-ph{position:relative;height:auto;aspect-ratio:4/3;object-position:50% 30%}
+  .camp-h{position:relative;bottom:auto;color:var(--ch);text-shadow:none;font-size:clamp(28px,8.6vw,40px);text-align:left;padding:26px var(--g) 0;line-height:1.08}
+  .camp-txt{position:relative;top:auto;left:auto;width:auto;padding:16px var(--g) 44px;font-weight:500;color:var(--ch2)}
+  .camp-side{display:none}
+  .camp-ph{order:1}.camp-h{order:2}.camp-txt{order:3}
+}
+@media(prefers-reduced-motion:reduce){.camp-ph,.camp-txt,.camp-h{transform:none!important;opacity:1!important;transition:none}}
 </style>
 </head>
 <body>
@@ -416,12 +435,18 @@ p,li,dd,h3,h4{text-wrap:pretty}
 </header>
 
 <main id="top">
+<section class="camp" id="campaign" aria-label="옐러블리 캠페인">
+  <img class="camp-ph" src="images/camp-group.jpg" alt="버터 옐로우 니트를 입은 네 명의 여성" fetchpriority="high">
+  <p class="camp-txt">레몬, 비타민C, 엑스트라버진 올리브오일, 유산균, 엽산. 좋다는 건 알아도 매일 아침 통을 하나씩 여닫기는 쉽지 않아요. 옐러블리는 다섯 가지를 하루 한 포, 세 알에 나눠 담았어요. 찢고, 삼키고, 나머지 아침은 나를 위해.</p>
+  <p class="camp-side" aria-hidden="true">@YELOVELY&nbsp;&nbsp;&nbsp;YELOVELY.CO</p>
+  <h1 class="camp-h"><span>A LITTLE SUN,</span> <b>EVERY MORNING.</b></h1>
+</section>
 <section class="hero" id="hero">
   <div></div>
   <img class="hero-word" src="images/wordmark.svg" alt="" aria-hidden="true">
   <svg class="hero-lens" id="lens" viewBox="0 0 223.401 47.06" preserveAspectRatio="none" aria-hidden="true"><defs><clipPath id="wmc"><path d="M3.305 47.06 L3.305 41.57 L8.739 41.57 C11.205 41.57 12.213 40.898 13.053 38.993 L13.725 37.536 L0 9.692 L6.778 9.692 L13.894 24.483 L16.639 31.15 L17.087 31.15 L19.72 24.427 L26.275 9.692 L32.942 9.692 L18.432 40.561 C16.135 45.547 12.997 47.06 7.283 47.06 Z"/><path d="M34.786 23.642 C34.786 14.958 40.725 9.132 49.801 9.132 C58.429 9.132 64.312 13.894 64.312 22.354 C64.312 23.362 64.255 24.146 64.087 24.987 L40.445 24.987 C40.669 30.365 43.303 33.222 49.745 33.222 C55.571 33.222 57.98 31.317 57.98 28.012 L57.98 27.564 L64.031 27.564 L64.031 28.068 C64.031 34.007 58.204 38.097 49.913 38.097 C40.781 38.097 34.786 32.942 34.786 23.642 Z M40.501 21.626 L58.597 21.626 L58.597 21.513 C58.597 16.359 55.628 13.894 49.689 13.894 C43.527 13.894 40.837 16.639 40.501 21.626 Z"/><path d="M68.846 37.536 L68.846 0 L74.896 0 L74.896 37.536 Z"/><path d="M79.265 23.642 C79.265 14.958 85.483 9.132 94.727 9.132 C104.027 9.132 110.246 14.958 110.246 23.642 C110.246 32.214 104.027 38.097 94.727 38.097 C85.483 38.097 79.265 32.214 79.265 23.642 Z M104.307 23.642 C104.307 17.704 101.506 14.455 94.727 14.455 C88.004 14.455 85.203 17.704 85.203 23.642 C85.203 29.525 88.004 32.718 94.727 32.718 C101.506 32.718 104.307 29.525 104.307 23.642 Z"/><path d="M125.088 37.536 L112.091 9.692 L118.758 9.692 L128.674 31.654 L129.122 31.654 L139.038 9.692 L145.593 9.692 L132.483 37.536 Z"/><path d="M147.55 23.642 C147.55 14.958 153.488 9.132 162.564 9.132 C171.192 9.132 177.075 13.894 177.075 22.354 C177.075 23.362 177.018 24.146 176.851 24.987 L153.209 24.987 C153.433 30.365 156.066 33.222 162.508 33.222 C168.334 33.222 170.744 31.317 170.744 28.012 L170.744 27.564 L176.794 27.564 L176.794 28.068 C176.794 34.007 170.968 38.097 162.676 38.097 C153.544 38.097 147.55 32.942 147.55 23.642 Z M153.264 21.626 L171.36 21.626 L171.36 21.513 C171.36 16.359 168.391 13.894 162.452 13.894 C156.29 13.894 153.6 16.639 153.264 21.626 Z"/><path d="M181.609 37.536 L181.609 0 L187.659 0 L187.659 37.536 Z"/><path d="M193.764 47.06 L193.764 41.57 L199.199 41.57 C201.663 41.57 202.672 40.898 203.513 38.993 L204.185 37.536 L190.459 9.692 L197.238 9.692 L204.353 24.483 L207.098 31.15 L207.546 31.15 L210.18 24.427 L216.734 9.692 L223.401 9.692 L208.891 40.561 C206.594 45.547 203.457 47.06 197.742 47.06 Z"/></clipPath></defs><image href="images/hero-olive-lens.jpg" x="0" y="-40" width="223.401" height="127" preserveAspectRatio="xMidYMid slice" clip-path="url(#wmc)"/></svg>
   <div class="hero-bot">
-    <h1 class="hero-h">아침 10초,<br>한 포면 돼요.</h1>
+    <h2 class="hero-h">아침 10초,<br>한 포면 돼요.</h2>
     <a class="btn" href="#news">와디즈 오픈 알림 받기</a>
   </div>
 </section>
@@ -706,7 +731,7 @@ p,li,dd,h3,h4{text-wrap:pretty}
 <script>
 (()=>{
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-requestAnimationFrame(()=>setTimeout(()=>document.getElementById('hero').classList.add('ready'),60));
+requestAnimationFrame(()=>setTimeout(()=>{document.getElementById('hero').classList.add('ready');document.getElementById('campaign').classList.add('ready')},60));
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15,rootMargin:'0px 0px -6% 0px'});
 const tt=document.querySelector('.tick-t'),unit=tt.innerHTML;
 const fillTick=()=>{tt.innerHTML=unit;const w=tt.scrollWidth;let n=1;while(tt.scrollWidth<innerWidth*2+w&&n<12){tt.innerHTML+=unit;n++}tt.style.setProperty('--tw',w+'px');tt.style.animationDuration=(w/60)+'s'};
