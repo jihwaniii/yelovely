@@ -324,6 +324,11 @@ footer{background:var(--sage);padding:clamp(70px,8vw,110px) 0 28px}
 .org-sec .grades-n{display:inline-block;margin-top:0;padding:12px 16px;background:rgba(253,249,238,.78)}
 footer .f-top{padding:clamp(28px,3.4vw,52px)}
 @media(max-width:520px){.f-form{flex-direction:column}.f-form .btn{width:100%}}
+.org-pnl{padding:clamp(40px,5vw,80px) clamp(20px,4vw,64px)}
+.org-sec .org-tx{padding:0}
+.org-sec .grades{background:transparent;-webkit-backdrop-filter:none;backdrop-filter:none}
+.org-sec .grades-n{padding:0;margin-top:14px;background:transparent}
+footer .f-top{padding:0}
 </style>
 </head>
 <body>
@@ -491,9 +496,10 @@ footer .f-top{padding:clamp(28px,3.4vw,52px)}
 
 <section class="sec org-sec" id="origin">
   <div class="wrap">
+    <div class="pnl org-pnl">
     <div class="org">
       <figure class="org-ph rv"><img src="images/crete-tree.jpg" alt="크레타의 올리브 나무" loading="lazy"></figure>
-      <div class="rv pnl org-tx">
+      <div class="rv org-tx">
         <h2 class="h2">여러 나라를 섞지 않았어요.<br>크레타섬 헤라클리온, <span class="nw">한 곳.</span></h2>
         <p class="lead" style="margin-top:20px">원료가 어디서 왔는지 한 곳으로 정확히 말할 수 있도록, 단일 산지의 유기농 엑스트라버진 올리브오일을 골랐어요.</p>
         <dl class="dl">
@@ -509,6 +515,7 @@ footer .f-top{padding:clamp(28px,3.4vw,52px)}
       <article><span class="cap">Refined</span><h4>열·화학 정제를 거친</h4><b>정제</b><p>공정으로 산도를 낮춰요. 이 과정에서 올리브 본래의 향도 대부분 사라져요.</p></article>
     </div>
     <p class="grades-n">국제올리브협회(IOC) 등급 기준 요약. 옐러블리 캡슐에는 크레타 헤라클리온산 유기농 엑스트라버진 올리브오일만 담았어요.</p>
+    </div>
   </div>
 </section>
 
@@ -609,7 +616,7 @@ footer .f-top{padding:clamp(28px,3.4vw,52px)}
 
 <footer id="news">
   <div class="wrap">
-    <div class="f-top pnl">
+    <div class="f-top">
       <div>
         <h2>매일 아침 먹는 거니까,<br>아무거나 먹을 순 없죠.</h2>
         <form class="f-form" onsubmit="event.preventDefault();this.querySelector('button').textContent='신청 완료';">
