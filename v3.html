@@ -12,7 +12,7 @@
 @font-face{font-family:'Pretendard';src:url('fonts/Pretendard-Bold.woff2') format('woff2');font-weight:700;font-display:swap}
 @font-face{font-family:'MICE';src:url('fonts/MICEMyungjo.woff2') format('woff2');font-weight:400;font-display:swap}
 
-:root{--y:#FFE96E;--sage:#CADDAC;--pink:#ECB6CD;--iv:#FDF9EE;--ch:#3D3B32;--ch2:rgba(61,59,50,.68);--ln:rgba(61,59,50,.2);--g:clamp(20px,4.4vw,72px);--ease:cubic-bezier(.2,.7,.2,1)}
+:root{--y:#FFE96E;--sage:#D6E7BE;--pink:#ECB6CD;--iv:#FDF9EE;--ch:#3D3B32;--ch2:rgba(61,59,50,.68);--ln:rgba(61,59,50,.2);--g:clamp(20px,4.4vw,72px);--ease:cubic-bezier(.2,.7,.2,1)}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{background:var(--iv);color:var(--ch);font-family:'Pretendard',-apple-system,BlinkMacSystemFont,sans-serif;font-size:16px;line-height:1.7;word-break:keep-all;-webkit-font-smoothing:antialiased}
@@ -35,7 +35,7 @@ mark.pk{background:linear-gradient(transparent 58%,var(--pink) 58%)}
 
 /* nav */
 .nav{position:fixed;inset:0 0 auto;z-index:30;display:flex;align-items:center;justify-content:space-between;padding:18px var(--g);transition:background .4s,padding .4s}
-.nav.solid{background:rgba(253,249,238,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding-top:12px;padding-bottom:12px}
+.nav.solid{top:34px;background:rgba(253,249,238,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding-top:12px;padding-bottom:12px}
 .nav .logo img{height:24px;width:auto;filter:brightness(0) opacity(.8)}
 .nav ul{list-style:none;display:flex;align-items:center;gap:clamp(14px,2vw,30px);font-size:14px;font-weight:500}
 .nav .btn{min-height:40px;padding:0 18px;font-size:13.5px}
@@ -222,9 +222,9 @@ sup{font-size:.62em;vertical-align:super;line-height:0}
 .stages h4{margin:10px 0 8px;font-size:20px;letter-spacing:-.03em}
 .stages p{font-size:14.5px;color:var(--ch2)}
 .dots{display:flex;gap:6px;margin-top:20px}
-.dots i{width:12px;height:12px;border-radius:50%;box-shadow:inset 0 0 0 1.5px var(--ch)}
+.dots i{width:12px;height:12px;border-radius:50%;background:rgba(61,59,50,.14)}
 .dots i.f{background:var(--y)}
-.dots i.p{background:var(--pink);box-shadow:none}
+.dots i.p{background:var(--pink)}
 @media(max-width:760px){.stages{grid-template-columns:1fr}.stages li{padding-bottom:26px;border-bottom:1px solid var(--ln)}}
 
 /* foryou */
@@ -273,9 +273,44 @@ footer{background:var(--sage);padding:clamp(70px,8vw,110px) 0 28px}
 .to-top:hover{background:var(--y)}
 @media(max-width:760px){.f-top{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv,.hero-word,.hero-cut,.hero-h,.hero-note{opacity:1!important;transform:none!important;transition:none!important}}
+
+/* r2: 상단 배너 */
+.tick{position:fixed;inset:0 0 auto;z-index:31;height:34px;background:var(--pink);overflow:hidden;display:flex;align-items:center;font-size:13px;font-weight:700;letter-spacing:-.01em}
+.tick-t{display:flex;align-items:center;gap:22px;white-space:nowrap;padding-left:22px;animation:tick 34s linear infinite}
+.tick-t i{font-style:normal;font-size:7px}
+@keyframes tick{to{transform:translateX(-50%)}}
+.nav{top:34px}
+.hero{padding-top:140px}
+/* r2: 스펙 그리드·올레샷 효과 */
+.spec>div{position:relative;overflow:hidden;transition:background .5s var(--ease)}
+.spec>div::after{content:"";position:absolute;inset:auto 0 0;height:0;background:var(--c,var(--y));transition:height .6s var(--ease);z-index:-1}
+.spec>div{isolation:isolate}
+.spec>div:nth-child(1){background:var(--y);--c:var(--iv)}
+.spec>div:nth-child(2){--c:var(--sage)}.spec>div:nth-child(3){--c:var(--pink)}.spec>div:nth-child(4){--c:var(--y)}
+@media(hover:hover){.spec>div:hover::after{height:100%}.spec>div:hover b{transform:translateY(-6px)}}
+.spec b{transition:transform .5s var(--ease)}
+.spec.in>div{animation:rise .9s var(--ease) both}
+.spec.in>div:nth-child(2){animation-delay:.1s}.spec.in>div:nth-child(3){animation-delay:.2s}.spec.in>div:nth-child(4){animation-delay:.3s}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.spec.rv{opacity:1;transform:none}
+.ole-stat{position:relative;border-top:0}
+.ole-stat::before,.pains::before{content:"";position:absolute;left:0;right:0;top:0;height:1.5px;background:var(--ch);transform:scaleX(0);transform-origin:left;transition:transform 1.2s var(--ease) .2s}
+.ole-stat.in::before,.pains.in::before{transform:scaleX(1)}
+.pains{position:relative;border-top:0}
+.pains li{position:relative;transition:padding .4s var(--ease),background .4s}
+.pains li span{position:relative;z-index:0}
+.pains li span::after{content:"";position:absolute;left:-2px;right:-2px;top:52%;height:.4em;translate:0 -50%;background:var(--pink);z-index:-1;transform:scaleX(0);transform-origin:left;transition:transform .8s var(--ease) .4s}
+.pains li.in span::after{transform:scaleX(1)}
+.pains li:nth-child(2) span::after{transition-delay:.55s}.pains li:nth-child(3) span::after{transition-delay:.7s}.pains li:nth-child(4) span::after{transition-delay:.85s}
+@media(hover:hover){.pains li:hover{padding-left:12px;background:rgba(255,233,110,.35)}}
+.ans{transition:transform .5s var(--ease)}
+@media(hover:hover){.ans:hover{transform:rotate(-1deg) scale(1.01)}}
+@media(prefers-reduced-motion:reduce){.tick-t{animation:none}.spec.in>div{animation:none}}
+.cnt{font-style:normal}
 </style>
 </head>
 <body>
+<div class="tick" aria-label="2027년 2월 와디즈 오픈"><div class="tick-t"><span>2027.02 와디즈 오픈</span><i>●</i><span>레몬 · 비타민C · 엑스트라버진 올리브오일 · 유산균 · 엽산</span><i>●</i><span>찢고, 3알, 끝.</span><i>●</i><span>오픈 알림 신청하고 가장 먼저 만나기</span><i>●</i></div></div>
 <header class="nav" id="nav">
   <a class="logo" href="#top" aria-label="yelovely 홈"><img src="images/logo-top.png" alt="yelovely"></a>
   <nav aria-label="주요 메뉴"><ul>
@@ -289,10 +324,7 @@ footer{background:var(--sage);padding:clamp(70px,8vw,110px) 0 28px}
 
 <main id="top">
 <section class="hero" id="hero">
-  <div class="hero-top">
-    <p class="hero-note">레몬, 비타민C, 엑스트라버진 올리브오일, 유산균, 엽산. 좋다는 건 알아도 매일 아침 통을 하나씩 여닫기는 쉽지 않아요. 옐러블리는 다섯 가지를 하루 한 포, 세 알에 나눠 담았어요.</p>
-    <p class="hero-tag cap">Lemon Aura<br>Daily pouch · 14 days</p>
-  </div>
+  <div></div>
   <p class="hero-word" aria-hidden="true">yelovely</p>
   <img class="hero-cut" src="images/lemon-olive-cut.webp" alt="" aria-hidden="true">
   <div class="hero-bot">
@@ -319,10 +351,10 @@ footer{background:var(--sage);padding:clamp(70px,8vw,110px) 0 28px}
 <section class="sec">
   <div class="wrap">
     <div class="spec rv">
-      <div><span class="cap">Pouch</span><b>1</b><p>하루 한 포. 찢어서 물과 함께.</p></div>
-      <div><span class="cap">Pills</span><b>3</b><p>레몬정 · 엽산정 · 올리브 캡슐</p></div>
-      <div><span class="cap">Days</span><b>14<small>/28</small></b><p>14포 한 상자, 두 상자면 28일</p></div>
-      <div><span class="cap">Origin</span><b>1</b><p>크레타섬 헤라클리온, 한 곳의 올리브</p></div>
+      <div><span class="cap">Pouch</span><b><span data-count="1">1</span></b><p>하루 한 포. 찢어서 물과 함께.</p></div>
+      <div><span class="cap">Pills</span><b><span data-count="3">3</span></b><p>레몬정 · 엽산정 · 올리브 캡슐</p></div>
+      <div><span class="cap">Days</span><b><span data-count="14">14</span><small>/28</small></b><p>14포 한 상자, 두 상자면 28일</p></div>
+      <div><span class="cap">Origin</span><b><span data-count="1">1</span></b><p>크레타섬 헤라클리온, 한 곳의 올리브</p></div>
     </div>
   </div>
 </section>
@@ -332,14 +364,14 @@ footer{background:var(--sage);padding:clamp(70px,8vw,110px) 0 28px}
     <div>
       <h2 class="h2 rv">아침 공복 올레샷,<br>매일 하기 어려웠죠?</h2>
       <p class="lead rv" style="margin-top:20px">올리브오일 한 스푼에 레몬즙 한 스푼.<br>요즘 아침 루틴으로 가장 많이 이야기되는 조합이에요.</p>
-      <p class="ole-stat rv"><b>2,479<small>%</small></b><span>올리브영 온라인몰 레몬즙 검색량,<br>전년 같은 기간 대비 증가<sup>1</sup></span></p>
+      <p class="ole-stat rv"><b><i class="cnt" data-count="2479">2,479</i><small>%</small></b><span>올리브영 온라인몰 레몬즙 검색량,<br>전년 같은 기간 대비 증가<sup>1</sup></span></p>
     </div>
     <div>
-      <ul class="pains">
-        <li class="rv"><i>01</i>숟가락에 따르고, 섞고, 설거지까지</li>
-        <li class="rv"><i>02</i>오일의 느끼함, 레몬의 시큼함</li>
-        <li class="rv"><i>03</i>출근길 가방에 병을 넣을 순 없으니까</li>
-        <li class="rv"><i>04</i>냉장고 안쪽으로 밀려난 레몬즙 한 병</li>
+      <ul class="pains rv">
+        <li class="rv"><i>01</i><span>숟가락에 따르고, 섞고, 설거지까지</span></li>
+        <li class="rv"><i>02</i><span>오일의 느끼함, 레몬의 시큼함</span></li>
+        <li class="rv"><i>03</i><span>출근길 가방에 병을 넣을 순 없으니까</span></li>
+        <li class="rv"><i>04</i><span>냉장고 안쪽으로 밀려난 레몬즙 한 병</span></li>
       </ul>
       <div class="ans rv"><p>옐러블리는 그 아침을 한 포로 접었어요.</p><span>올리브오일은 캡슐로, 레몬은 정제로. 여기에 엽산과 유산균 한 알을 더해, <span class="nw">물 한 모금이면 끝.</span></span></div>
     </div>
@@ -350,8 +382,6 @@ footer{background:var(--sage);padding:clamp(70px,8vw,110px) 0 28px}
 <section class="bleed" aria-label="찢고, 3알, 끝">
   <video autoplay muted loop playsinline preload="metadata" poster="images/harvest-poster.jpg"><source src="images/harvest-loop.mp4" type="video/mp4"></video>
   <p class="bleed-word" aria-hidden="true">morning</p>
-  <img class="bleed-cut" src="images/softgel.png" alt="" aria-hidden="true">
-  <div class="bleed-foot"><span>찢고, 3알, 끝.</span><span>Lemon Aura</span></div>
 </section>
 
 <section class="sec pills-sec" id="inside">
@@ -581,6 +611,10 @@ footer{background:var(--sage);padding:clamp(70px,8vw,110px) 0 28px}
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 requestAnimationFrame(()=>setTimeout(()=>document.getElementById('hero').classList.add('ready'),60));
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15,rootMargin:'0px 0px -6% 0px'});
+const tt=document.querySelector('.tick-t');tt.innerHTML+=tt.innerHTML;
+const cnt=el=>{const to=+el.dataset.count;if(reduce)return;const t0=performance.now();const f=t=>{const k=Math.min((t-t0)/1300,1),e=1-Math.pow(1-k,3);el.textContent=Math.round(to*e).toLocaleString('en-US');if(k<1)requestAnimationFrame(f)};requestAnimationFrame(f)};
+const io2=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){cnt(e.target);io2.unobserve(e.target)}}),{threshold:.5});
+document.querySelectorAll('[data-count]').forEach(el=>{if(!reduce)el.textContent='0';io2.observe(el)});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 const nav=document.getElementById('nav');
 const onS=()=>nav.classList.toggle('solid',scrollY>innerHeight*.5);
