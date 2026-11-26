@@ -419,6 +419,29 @@ p,li,dd,h3,h4{text-wrap:pretty}
   .camp-ph{order:1}.camp-h{order:2}.camp-txt{order:3}
 }
 @media(prefers-reduced-motion:reduce){.camp-ph,.camp-txt,.camp-h{transform:none!important;opacity:1!important;transition:none}}
+
+/* r9: 해가 뜨는 오프닝 */
+.sun{position:relative;height:260vh;background:var(--iv)}
+.sun-st{position:sticky;top:0;height:100svh;overflow:hidden}
+.sun-clip{position:absolute;inset:0 0 var(--hz,38%) 0;overflow:hidden}
+.sun-disc{position:absolute;left:50%;top:33%;width:min(46vw,58vh);aspect-ratio:1;border-radius:50%;overflow:hidden;translate:-50% -50%;transform:translateY(var(--ty,90%)) scale(var(--sc,1));will-change:transform;box-shadow:0 0 120px 30px rgba(255,233,110,.45)}
+.sun-disc video{width:100%;height:100%;object-fit:cover}
+.sun-tint{position:absolute;inset:0;background:var(--y);mix-blend-mode:multiply;opacity:var(--tn,.5)}
+.sun-disc::after{content:"";position:absolute;inset:0;background:var(--y);opacity:var(--to,0)}
+.sun-line{position:absolute;left:var(--g);right:var(--g);top:62%;height:1.5px;background:var(--ch);transform-origin:left;transform:scaleX(var(--lx,0));opacity:var(--lo,1)}
+.sun-h{position:absolute;left:var(--g);right:var(--g);top:calc(62% + 22px);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-weight:800;font-size:clamp(28px,5vw,84px);letter-spacing:-.03em;line-height:1;opacity:var(--ho,1)}
+.sun-h span{font-weight:500}
+.sun-txt{position:absolute;top:clamp(120px,16vh,160px);left:var(--g);width:min(360px,30vw);font-size:clamp(12.5px,.95vw,14.5px);line-height:1.72;font-weight:600;text-align:justify;opacity:var(--ho,1)}
+.sun-meta{position:absolute;top:clamp(120px,16vh,160px);right:var(--g);text-align:right;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;display:flex;flex-direction:column;gap:4px;opacity:var(--ho,1)}
+.sun-cue{position:absolute;left:50%;bottom:18px;translate:-50% 0;font-size:11px;letter-spacing:.2em;text-transform:uppercase;opacity:calc(var(--ho,1) * .7)}
+@media(max-width:760px){
+  .sun{height:220vh}
+  .sun-disc{width:68vw}
+  .sun-txt{width:auto;right:var(--g);font-weight:500;top:calc(62% + 120px)}
+  .sun-meta{display:none}
+  .sun-h{flex-direction:column;gap:6px;font-size:clamp(30px,9vw,44px)}
+}
+@media(prefers-reduced-motion:reduce){.sun{height:auto}.sun-st{position:relative}.sun-st{--ty:18%;--hz:38%;--lx:1}}
 </style>
 </head>
 <body>
@@ -435,11 +458,15 @@ p,li,dd,h3,h4{text-wrap:pretty}
 </header>
 
 <main id="top">
-<section class="camp" id="campaign" aria-label="옐러블리 캠페인">
-  <video class="camp-ph" autoplay muted loop playsinline preload="auto" poster="images/camp-poster.jpg" aria-label="버터 옐로우 니트를 입은 세 명의 여성이 웃고 있는 영상"><source src="images/camp-loop-m.mp4" type="video/mp4" media="(max-width:760px)"><source src="images/camp-loop.mp4" type="video/mp4"></video>
-  <p class="camp-txt">레몬, 비타민C, 엑스트라버진 올리브오일, 유산균, 엽산. 좋다는 건 알아도 매일 아침 통을 하나씩 여닫기는 쉽지 않아요. 옐러블리는 다섯 가지를 하루 한 포, 세 알에 나눠 담았어요. 찢고, 삼키고, 나머지 아침은 나를 위해.</p>
-  <p class="camp-side" aria-hidden="true">@YELOVELY&nbsp;&nbsp;&nbsp;YELOVELY.CO</p>
-  <h1 class="camp-h"><span>A LITTLE SUN,</span> <b>EVERY MORNING.</b></h1>
+<section class="sun" id="campaign" aria-label="A little sun, every morning">
+  <div class="sun-st">
+    <p class="sun-txt">레몬, 비타민C, 엑스트라버진 올리브오일, 유산균, 엽산. 좋다는 건 알아도 매일 아침 통을 하나씩 여닫기는 쉽지 않아요. 옐러블리는 다섯 가지를 하루 한 포, 세 알에 나눠 담았어요.</p>
+    <p class="sun-meta" aria-hidden="true"><span>07:00</span><span>Heraklion, Crete</span></p>
+    <div class="sun-clip"><div class="sun-disc" id="sunDisc"><video muted loop playsinline autoplay preload="metadata" poster="images/harvest-poster.jpg"><source src="images/harvest-loop.mp4" type="video/mp4"></video><i class="sun-tint"></i></div></div>
+    <i class="sun-line" aria-hidden="true"></i>
+    <h1 class="sun-h"><span>A LITTLE SUN,</span><b>EVERY MORNING.</b></h1>
+    <p class="sun-cue" aria-hidden="true">Scroll</p>
+  </div>
 </section>
 <section class="hero" id="hero">
   <div></div>
@@ -752,6 +779,21 @@ if(!reduce){
   hero.addEventListener('pointerleave',()=>{tr=0});
   new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){if(!lraf)lt()}else{cancelAnimationFrame(lraf);lraf=0}})).observe(hero);
 }
+const sun=document.getElementById('campaign'),sst=sun.querySelector('.sun-st'),sv=sun.querySelector('video');
+const sunR=()=>{if(reduce)return;const r=sun.getBoundingClientRect(),p=Math.min(Math.max(-r.top/(r.height-innerHeight),0),1);
+  const e=k=>1-Math.pow(1-k,3),cl=v=>Math.min(Math.max(v,0),1);
+  const rise=e(cl(p/.4)),grow=cl((p-.52)/.4),g2=grow*grow;
+  const d=sun.querySelector('.sun-disc').offsetWidth||1,cover=Math.hypot(innerWidth,innerHeight)*2.1/d;
+  sst.style.setProperty('--ty',(18*(1-grow)+(1-rise)*72).toFixed(2)+'%');
+  sst.style.setProperty('--sc',(1+g2*(cover-1)).toFixed(3));sst.style.setProperty('--ty2',(18*(1-grow)).toFixed(2));
+  sst.style.setProperty('--hz',(38*(1-cl((p-.42)/.12))).toFixed(2)+'%');
+  sst.style.setProperty('--lx',e(cl(p/.25)).toFixed(3));
+  sst.style.setProperty('--lo',(1-cl((p-.45)/.1)).toFixed(3));
+  sst.style.setProperty('--ho',(1-cl((p-.5)/.15)).toFixed(3));
+  sst.style.setProperty('--tn',(.5+.5*cl((p-.62)/.3)).toFixed(3));sst.style.setProperty('--to',cl((p-.8)/.15).toFixed(3));
+};
+addEventListener('scroll',()=>requestAnimationFrame(sunR),{passive:true});addEventListener('resize',sunR);sunR();
+new IntersectionObserver(es=>es.forEach(x=>{x.isIntersecting?sv.play().catch(()=>{}):sv.pause()})).observe(sun);
 const nav=document.getElementById('nav');
 const onS=()=>nav.classList.toggle('solid',scrollY>innerHeight*.5);
 addEventListener('scroll',onS,{passive:true});onS();
