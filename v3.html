@@ -489,6 +489,8 @@ html.cc input,html.cc textarea{cursor:text!important}
 .cur.on{opacity:1}
 .cur.big{width:46px;height:46px;margin:-23px 0 0 -23px;background:rgba(255,233,110,.6)}
 .cur.down{scale:.8}
+.cur.alt{background:var(--pk,#F0BCD2)}
+.cur.alt.big{background:rgba(240,188,210,.75)}
 }
 </style>
 </head>
@@ -874,8 +876,9 @@ document.querySelectorAll('video').forEach(v=>{if(reduce){v.removeAttribute('aut
 (()=>{if(!matchMedia('(hover:hover) and (pointer:fine)').matches)return;
 const c=document.createElement('div');c.className='cur';c.setAttribute('aria-hidden','true');document.body.appendChild(c);document.documentElement.classList.add('cc');
 let x=-99,y=-99,cx=x,cy=y,raf=0;const sel='a,button,summary,label,[role=button],.rew li,.mosaic figure,.spec>div';
+const yc=new WeakMap(),onY=t=>{for(let n=t;n&&n.nodeType===1;n=n.parentElement){if(yc.has(n))return yc.get(n);const b=getComputedStyle(n).backgroundColor,m=b.match(/[\d.]+/g);if(m&&(m[3]===undefined||+m[3]>.5)){const r=+m[0]>225&&+m[1]>200&&+m[2]<180;yc.set(n,r);return r}if(getComputedStyle(n).backgroundImage!=='none'){yc.set(n,false);return false}}return false};
 const tick=()=>{cx+=(x-cx)*.35;cy+=(y-cy)*.35;c.style.translate=cx+'px '+cy+'px';raf=(Math.abs(x-cx)+Math.abs(y-cy)>.3)?requestAnimationFrame(tick):0};
-addEventListener('pointermove',e=>{x=e.clientX;y=e.clientY;c.classList.add('on');c.classList.toggle('big',!!e.target.closest(sel));if(!raf)raf=requestAnimationFrame(tick)},{passive:true});
+addEventListener('pointermove',e=>{x=e.clientX;y=e.clientY;c.classList.add('on');c.classList.toggle('big',!!e.target.closest(sel));c.classList.toggle('alt',onY(e.target));if(!raf)raf=requestAnimationFrame(tick)},{passive:true});
 document.addEventListener('pointerleave',()=>c.classList.remove('on'));
 addEventListener('pointerdown',()=>c.classList.add('down'));addEventListener('pointerup',()=>c.classList.remove('down'));})();
 </script>
